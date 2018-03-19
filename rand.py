@@ -4,8 +4,10 @@ from localisation import localisation
 
 
 class rand(object):
-    def __init__(self, name="", local = localisation()):
+    def __init__(self, generator, ranomp, local = localisation()):
         loc = localisation().text[me]
-        self.rawparam = {}
-        #ToDo сделать считыватель ячейки из файла
+
+        #ToDo сделать класс рандомизации
+
+
         pass

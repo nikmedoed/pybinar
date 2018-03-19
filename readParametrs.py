@@ -2,6 +2,7 @@ import os
 me = os.path.basename(__file__).replace(".py", "")
 from localisation import localisation
 from rand import rand
+import time
 
 from cells import cell, supercell
 
@@ -32,14 +33,19 @@ class inData(object):
         self.cell = cell(self.rawparam['Name'], local)
         conditions = self.rawparam['Сonditions']
         self.supercell = supercell(cell, list(map(int,(conditions[0]).split())), local)
-        self.random = rand(int(conditions[1]),conditions[2])
+        self.random = rand(int(conditions[1]), conditions[2], local)
 
-        # Todo Как лучше сохранить оставшиесч условия, чтобы потом было просто юзать
+        # Todo Как лучше сохранить оставшиеся условия, чтобы потом было просто юзать
 
+        const = self.rawparam['Сonstraints']
+        self.timeLimit = int(const[0]) if not (":" in const[0]) else time.strptime(const[0], "%H:%M:%S")
+#Todo нормально скушать время с часам больше 23
 
 
 
 if __name__ == "__main__":
+
+    t = time.strptime("90:20:12", "%X")
     i = inData("exampleinput.txt", localisation())
     print(i.rawparam)
 
