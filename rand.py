@@ -1,11 +1,10 @@
 import os
-me = os.path.basename(__file__).replace(".py", "")
 from localisation import localisation
 
 
 class rand(object):
     def __init__(self, generator, ranomp, local = localisation()):
-        loc = localisation().text[me]
+        loc = local.loc(__file__) # text for this file
 
         #ToDo сделать класс рандомизации
 

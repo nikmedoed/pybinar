@@ -2,6 +2,7 @@ import os
 from localisation import localisation
 from rand import rand
 import time
+import os
 
 from cells import cell, supercell
 
@@ -14,6 +15,9 @@ class inData(object):
         block = ""
         if infile == "":
             print(loc['InError'])
+            raise Exception
+        if not os.path.exists(infile):
+            print(loc['InFileFalse'])
             raise Exception
         # ToDo проверять, что файл существует
 

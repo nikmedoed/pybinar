@@ -33,8 +33,7 @@ class localisation(object):
 
     def loc(self, mod):
         me = os.path.basename(mod).replace(".py", "")
-        return self.text[me]
-# ToDo  проверять, есть ли текст для этого файла
+        return self.text[me] if me in self.text.keys() else []
 
 
 if __name__ == "__main__":
