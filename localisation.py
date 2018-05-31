@@ -28,6 +28,15 @@ class localisation(object):
             print("\x1b[31mFATAL ERROR\x1b[0m: localistion isn't loaded")
             raise Exception
 
+
+
+
+    def loc(self, mod):
+        me = os.path.basename(mod).replace(".py", "")
+        return self.text[me]
+# ToDo  проверять, есть ли текст для этого файла
+
+
 if __name__ == "__main__":
     a = localisation()
     print(a.text)

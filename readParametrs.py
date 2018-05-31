@@ -1,5 +1,4 @@
 import os
-me = os.path.basename(__file__).replace(".py", "")
 from localisation import localisation
 from rand import rand
 import time
@@ -10,7 +9,7 @@ class inData(object):
     """paramets reader"""
 
     def __init__(self, infile="", local = localisation()):
-        loc = localisation().text[me]
+        loc = local.loc(__file__) # text for this file
         self.rawparam = {}
         block = ""
         if infile == "":
@@ -25,7 +24,7 @@ class inData(object):
             if len(i) > 0:
                 # print(len(i))
                 if i[len(i)-1] == ":":
-                    block = i[:len(i)]
+                    block = i[:len(i)-1]
                     self.rawparam[block] = []
                 else:
                     self.rawparam[block].append(i)
@@ -45,7 +44,7 @@ class inData(object):
 
 if __name__ == "__main__":
 
-    t = time.strptime("90:20:12", "%X")
+    # t = time.strptime("00:20:12", "%X") # это для экспериментов со временем
     i = inData("exampleinput.txt", localisation())
     print(i.rawparam)
 
