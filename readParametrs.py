@@ -1,13 +1,24 @@
-import os
 from localisation import localisation
 from rand import rand
 import time
 import os
+import json
 
 from cells import cell, supercell
 
 class inData(object):
-    """paramets reader"""
+    """
+    paramets reader
+
+    initialize from input file and makes structure with raw parametrs and their interpretations
+    rawparam - list
+    cell - object with cell from cell file (gulp)
+    supercell - reproduction of a given cell
+    random - insertion position generator
+    insertionRules -insertion rules
+    timeLimit - time limit for experiments in seconds
+
+    """
 
     def __init__(self, infile="", local = localisation()):
         loc = local.loc(__file__) # text for this file
@@ -19,7 +30,6 @@ class inData(object):
         if not os.path.exists(infile):
             print(loc['InFileFalse'])
             raise Exception
-        # ToDo проверять, что файл существует
 
         f = open(infile, "r", encoding="utf-8")
         for i in f:
@@ -37,20 +47,62 @@ class inData(object):
         conditions = self.rawparam['Сonditions']
         self.supercell = supercell(cell, list(map(int,(conditions[0]).split())), local)
         self.random = rand(int(conditions[1]), conditions[2], local)
-
-        # Todo Как лучше сохранить оставшиеся условия, чтобы потом было просто юзать
+        self.insertionRules = []
+        for k in conditions[3:]:
+            i = k.replace(">", " ").split()
+            i[2] = int(i[2])
+            self.insertionRules.append(i)
 
         const = self.rawparam['Сonstraints']
-        self.timeLimit = int(const[0]) if not (":" in const[0]) else time.strptime(const[0], "%H:%M:%S")
-#Todo нормально скушать время с часам больше 23
+        self.timeLimit = int(const[0])*60 if not (":" in const[0]) else \
+            sum(map(lambda x, y: int(x)*y, const[0].split(":"), [360, 60, 1]))
+
+        self.sphere2 = float(const[1])
+        self.sphere1 = float(const[2])
+        self.x2toLess =  "0" == const[3]
+        self.x2stop = float(const[4])
+
+
+        #Todo параметры остановки эксперимента
+
+        #Todo параметры вывода
+
+    def __repr__(self):
+        return "inData class"
+
+    def __str__(self):
+        t = "\n".join([
+            "\nrawparam",
+            self.rawparam.__str__().replace("'], '", "'], \n'").replace("': ['", "':\t['"),
+            "\ncell",
+            str(self.cell),
+            "\nsupercell",
+            str(self.supercell),
+            "\nrandom",
+            str(self.random),
+            "\ntimeLimit",
+            str(self.timeLimit),
+            "\nRules",
+            str(self.insertionRules),
+            "\nParam",
+            "sphere2:\t" + str(self.sphere2),
+            "sphere1:\t" + str(self.sphere1),
+            "x2toLess:\t" + str(self.x2toLess),
+            "x2stop:\t" + str(self.x2stop),
+
+        ])
+
+        return t
 
 
 
 if __name__ == "__main__":
-
-    # t = time.strptime("00:20:12", "%X") # это для экспериментов со временем
     i = inData("exampleinput.txt", localisation())
-    print(i.rawparam)
+    print(i)
+
+    # t = time("30:20:12") # это для экспериментов со временем %H:%M:%S
+
+    # print (t)
 
 # if block == "Name":
 #     pass
