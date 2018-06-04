@@ -4,8 +4,8 @@ from localisation import localisation
 
 class rand(object):
     def __init__(self, generator, randomp, local = localisation()):
-        loc = local.loc(__file__) # text for this file
-        self.generator =  generator
+        self.loc = local.loc(__file__) # text for this file
+        self.generator = generator
         self.randomp = randomp
         #ToDo сделать класс рандомизации
 
