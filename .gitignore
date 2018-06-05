@@ -106,3 +106,4 @@ venv.bak/
 *.pyc
 *.pyc
 __pycache__/localisation.cpython-36.pyc
+.idea/workspace.xml
