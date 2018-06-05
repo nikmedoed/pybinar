@@ -55,14 +55,18 @@ class supercell(object):
         self.loc = local.loc(__file__) # text for this file
         self.cell = cell
         self.xyz = xyz
-        self.atoms = []
-        self.cells = [] # не уверен, что пригодится, но пока забацаем
+        self.atoms = [] # список атомов, в каждом указана связанная с ним ячейка
+        self.cells = [] # позиции ячеек
+        cellnum = 0
         for x in range(self.xyz[0]):
             for y in range(self.xyz[1]):
-                temp=[]
                 for z in range(self.xyz[2]):
+                    temp = []
                     for i in cell.atoms:
-                        temp.append()
+                        temp.append((i + [x, y, z]).setcell(cellnum))
+                    self.atoms.extend(temp)
+                    cellnum += 1
+                    self.cells.append([x, y, z])
 
 
 
