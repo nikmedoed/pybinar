@@ -95,7 +95,7 @@ class inData(object):
 
         self.cell = cell(self.rawparam['Name'][0], local)
         conditions = self.rawparam['Сonditions']
-        self.supercell = supercell(cell, list(map(int, (conditions[0]).split())), local)
+        self.supercell = supercell(self.cell, list(map(int, (conditions[0]).split())), local)
         self.random = rand(conditions[1], conditions[2], local)
         self.insertionRules = []
         for k in conditions[3:]:

@@ -4,7 +4,9 @@ me = os.path.basename(__file__).replace(".py", "")
 delaultloc = "ru"
 
 class localisation(object):
+
     def __init__(self, loc = ""):
+        self.error = "?"
         if loc == "":
             loc = delaultloc
         f = open("Local/"+loc, "r", encoding="utf-8")
@@ -29,6 +31,9 @@ class localisation(object):
             raise Exception
 
 
+    def seterr(self, t):
+        self.error = t
+        raise Exception()
 
 
     def loc(self, mod):

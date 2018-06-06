@@ -1,6 +1,7 @@
 import os
 from localisation import localisation
 from atom import atom
+from addons import *
 
 
 class cell(object):
@@ -12,6 +13,7 @@ class cell(object):
         self.cell_ang = []
         self.atoms = []
         main = True
+        self.elements = set()
         with open(name, "r") as file:
             for i in file:
                 if "_cell_length" in i:
@@ -24,27 +26,42 @@ class cell(object):
                     self.filemain += i
                 else:
                     s = i.split()
+                    self.elements.add(s[0])
                     self.atoms.append(atom(s[0], s[1], s[2], s[3], local))
+        self.atoms.sort(key=lambda x: x.name)
+        self.atomcount = dict.fromkeys(self.elements, 0)
 
-    def getatoms(self):
+    def printatoms(self):
         r = ""
         r += "\n"+"\n".join(list(map(str, self.atoms)))
         return r
 
+    def printatomsNumeric(self):
+        self.atomcount = dict.fromkeys(self.elements, 0)
+        r = ""
+        r += "\n".join(list(map(lambda x: numericListFromDic(self.atomcount, x.name) + str(x), self.atoms)))
+        return r
+
     def __str__(self):
+        # l = lambda a, b: str(a) + ":\t" + str(b)
+        # if self.color:
+        l = lambda a, b: "\x1b[36m" + a + ":\x1b[0m\t" + str(b)
+
         r = "\n".join(
-            map(lambda a, b: "\x1b[36m" + a + ":\x1b[0m\t" + str(b),
+            map(l,
             [
                 "file",
                 "cell_abc",
                 "cell_ang",
+                "elements",
                 "atoms"
             ],
             [
                 self.file,
                 self.cell_abc,
                 self.cell_ang,
-                self.getatoms()
+                self.elements,
+                self.printatoms()
 
             ]
         ))
@@ -58,6 +75,9 @@ class supercell(object):
         self.atoms = [] # список атомов, в каждом указана связанная с ним ячейка
         self.cells = [] # позиции ячеек
         cellnum = 0
+
+        if cell.atoms == []: local.seterr(self.loc["CellNull"])
+
         for x in range(self.xyz[0]):
             for y in range(self.xyz[1]):
                 for z in range(self.xyz[2]):
@@ -67,17 +87,42 @@ class supercell(object):
                     self.atoms.extend(temp)
                     cellnum += 1
                     self.cells.append([x, y, z])
+        self.atoms.sort(key=lambda x: x.name)
+        self.atomcount = dict.fromkeys(self.cell.elements, 0)
 
+    def printatoms(self):
+        r = ""
+        r += "\n"+"\n".join(list(map(
+            lambda x: str(x) + ("   \x1b[36mcell:\x1b[0m \x1b[31m%3d\x1b[0m %s" % (x.cell, str(self.cells[x.cell]))),
+            self.atoms
+        )))
+        return r
 
-
-        # ToDo сделать размножитель ячейки
-        pass
+    def printatomsNumeric(self):
+        self.atomcount = dict.fromkeys(self.cell.elements, 0)
+        r = ""
+        r += "\n".join(list(map(lambda x: numericListFromDic(self.atomcount, x.name) + str(x), self.atoms)))
+        return r
 
     def __str__(self):
         r = ""
         # r += "\x1b[36mcell:\x1b[0m\n" + str(self.cell) +
-        r += "\nxyz:\t" + str(self.xyz)
+        r += "\nxyz:\t" + str()
+        l = lambda a, b: "\x1b[36m" + a + ":\x1b[0m\t" + str(b)
 
+        r = "\n".join(
+            map(l,
+            [
+                "translations",
+                "cells",
+                "atoms"
+            ],
+            [
+                self.xyz,
+                self.cells,
+                self.printatoms()
+            ]
+        ))
         return r
 
 
@@ -85,11 +130,14 @@ if __name__ == "__main__":
     local = localisation()
     c = cell("Fe4Si4O12_P1.cif", local)
     s = supercell(c, [2, 2, 2], local)
-    print(
-        "\n".join([
-            "\x1b[32mCell\x1b[0m",
-            str(c),
-            "\n\x1b[32mSupercell\x1b[0m",
-            str(s)
-        ])
-    )
+    # print(
+    #     "\n".join([
+    #         "\x1b[32mCell\x1b[0m",
+    #         str(c),
+    #         "\n\x1b[32mSupercell\x1b[0m",
+    #         str(s)
+    #     ])
+    # )
+    # print(s)
+    print(s.printatomsNumeric())
+

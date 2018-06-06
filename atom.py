@@ -20,11 +20,13 @@ class atom(object):
         self.cell = n
         return self
 
+
+
     def __str__(self):
         t = "  \x1b[33m%-3s\x1b[0m%s" % (self.name, self.pos)
         return t
 
-    def __rerp__(self):
+    def __repr__(self):
         t = "class atom:  \x1b[33m%-3s\x1b[0m%s" % (self.name, self.pos)
         return t
 
