@@ -7,9 +7,14 @@ import json
 from cells import cell, supercell
 
 class printparam(object):
+    """
+    Class for printing parametrs from input file
+    At initialisation gets 'param' - list of text data ("0" or "1") and translate it to boolean
+    """
     def __init__(self, param, local=localisation()):
         loc = local.loc(__file__)  # text for this file
-        [self.replication,
+        [self.input,
+         self.replication,
          self.cations_all,
          self.cations_2sphere_cat,
          self.cations_2sphere_ani,
@@ -26,7 +31,8 @@ class printparam(object):
     def __str__(self):
         t = "\n".join(
         map(lambda a,b: "\x1b[36m" + a + ":\x1b[0m\t" + str(b),
-            ["replication",
+            ["input cell coordinates",
+             "replication",
             "cations_all",
             "cations_2sphere_cat",
             "cations_2sphere_ani",
@@ -38,7 +44,8 @@ class printparam(object):
             "final_conf",
             "GULP",
             "distrib_diag"],
-            [self.replication,
+            [self.input,
+             self.replication,
              self.cations_all,
              self.cations_2sphere_cat,
              self.cations_2sphere_ani,

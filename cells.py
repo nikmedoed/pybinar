@@ -2,6 +2,7 @@ import os
 from localisation import localisation
 from atom import atom
 from addons import *
+from functools import reduce
 
 
 class cell(object):
@@ -14,6 +15,7 @@ class cell(object):
         self.atoms = []
         main = True
         self.elements = set()
+        self.atomcount = dict()
         with open(name, "r") as file:
             for i in file:
                 if "_cell_length" in i:
@@ -26,10 +28,14 @@ class cell(object):
                     self.filemain += i
                 else:
                     s = i.split()
-                    self.elements.add(s[0])
+                    if not (s[0] in self.elements):
+                        self.elements.add(s[0])
+                        self.atomcount[s[0]] = 0
+                    self.atomcount[s[0]] += 1
                     self.atoms.append(atom(s[0], s[1], s[2], s[3], local))
+        self.atomcount = list(self.atomcount.items())
+        self.atomcount.sort(key=lambda x: x[0])
         self.atoms.sort(key=lambda x: x.name)
-        self.atomcount = dict.fromkeys(self.elements, 0)
 
     def printatoms(self):
         r = ""
@@ -37,9 +43,10 @@ class cell(object):
         return r
 
     def printatomsNumeric(self):
-        self.atomcount = dict.fromkeys(self.elements, 0)
+
+        self.atomTEMPcount = dict.fromkeys(self.elements, 0)
         r = ""
-        r += "\n".join(list(map(lambda x: numericListFromDic(self.atomcount, x.name) + str(x), self.atoms)))
+        r += "\n".join(list(map(lambda x: numericListFromDic(self.atomTEMPcount, x.name) + str(x), self.atoms)))
         return r
 
     def __str__(self):
@@ -74,8 +81,9 @@ class supercell(object):
         self.xyz = xyz
         self.atoms = [] # список атомов, в каждом указана связанная с ним ячейка
         self.cells = [] # позиции ячеек
+        self.Cmul = reduce(lambda x, y: x*y, self.xyz)
         cellnum = 0
-
+        self.atomcount = list(map(lambda a: [a[0], a[1] * self.Cmul], self.cell.atomcount))
         if cell.atoms == []: local.seterr(self.loc["CellNull"])
 
         for x in range(self.xyz[0]):
@@ -88,7 +96,7 @@ class supercell(object):
                     cellnum += 1
                     self.cells.append([x, y, z])
         self.atoms.sort(key=lambda x: x.name)
-        self.atomcount = dict.fromkeys(self.cell.elements, 0)
+        self.atomTEMPcount = dict.fromkeys(self.cell.elements, 0)
 
     def printatoms(self):
         r = ""
@@ -99,9 +107,9 @@ class supercell(object):
         return r
 
     def printatomsNumeric(self):
-        self.atomcount = dict.fromkeys(self.cell.elements, 0)
+        self.atomTEMPcount = dict.fromkeys(self.cell.elements, 0)
         r = ""
-        r += "\n".join(list(map(lambda x: numericListFromDic(self.atomcount, x.name) + str(x), self.atoms)))
+        r += "\n".join(list(map(lambda x: numericListFromDic(self.atomTEMPcount, x.name) + str(x), self.atoms)))
         return r
 
     def __str__(self):
