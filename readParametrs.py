@@ -15,7 +15,6 @@ class printparam(object):
         loc = local.loc(__file__)  # text for this file
         [self.input,
          self.replication,
-         self.cations_all,
          self.cations_2sphere_cat,
          self.cations_2sphere_ani,
          self.cations_1sphere_cat,
@@ -33,7 +32,6 @@ class printparam(object):
         map(lambda a,b: "\x1b[36m" + a + ":\x1b[0m\t" + str(b),
             ["input cell coordinates",
              "replication",
-            "cations_all",
             "cations_2sphere_cat",
             "cations_2sphere_ani",
             "cations_1sphere_cat",
@@ -46,7 +44,6 @@ class printparam(object):
             "distrib_diag"],
             [self.input,
              self.replication,
-             self.cations_all,
              self.cations_2sphere_cat,
              self.cations_2sphere_ani,
              self.cations_1sphere_cat,
@@ -112,7 +109,7 @@ class inData(object):
 
         const = self.rawparam['Сonstraints']
         self.timeLimit = int(const[0])*60 if not (":" in const[0]) else \
-            sum(map(lambda x, y: int(x)*y, const[0].split(":"), [360, 60, 1]))
+            sum(map(lambda x, y: int(x)*y, const[0].split(":"), [3600, 60, 1]))
 
         self.sphere2 = float(const[1])
         self.sphere1 = float(const[2])

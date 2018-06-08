@@ -4,11 +4,10 @@
     <list default="true" id="31c4af39-cd81-4b7c-8e79-a934363f96bd" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Local/ru" beforeDir="false" afterPath="$PROJECT_DIR$/Local/ru" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/addons.py" beforeDir="false" afterPath="$PROJECT_DIR$/addons.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cells.py" beforeDir="false" afterPath="$PROJECT_DIR$/cells.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/exampleinput - results/00 - result.txt" beforeDir="false" afterPath="$PROJECT_DIR$/exampleinput - results/00 - result.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/exampleinput.txt" beforeDir="false" afterPath="$PROJECT_DIR$/exampleinput.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pybinar.py" beforeDir="false" afterPath="$PROJECT_DIR$/pybinar.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rand.py" beforeDir="false" afterPath="$PROJECT_DIR$/rand.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/readParametrs.py" beforeDir="false" afterPath="$PROJECT_DIR$/readParametrs.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -28,20 +27,8 @@
                 <file leaf-file-name="00 - result.txt" pinned="false" current-in-tab="true">
                   <entry file="file://$PROJECT_DIR$/exampleinput - results/00 - result.txt">
                     <provider selected="true" editor-type-id="text-editor">
-                      <state relative-caret-position="3468">
-                        <caret line="204" column="43" lean-forward="true" selection-start-line="204" selection-start-column="43" selection-end-line="204" selection-end-column="43" />
-                      </state>
-                    </provider>
-                  </entry>
-                </file>
-                <file leaf-file-name="addons.py" pinned="false" current-in-tab="false">
-                  <entry file="file://$PROJECT_DIR$/addons.py">
-                    <provider selected="true" editor-type-id="text-editor">
-                      <state relative-caret-position="759">
-                        <caret line="73" column="36" selection-start-line="73" selection-start-column="35" selection-end-line="73" selection-end-column="36" />
-                        <folding>
-                          <element signature="e#0#39#0" expanded="true" />
-                        </folding>
+                      <state relative-caret-position="711">
+                        <caret line="42" lean-forward="true" selection-start-line="42" selection-end-line="42" />
                       </state>
                     </provider>
                   </entry>
@@ -53,7 +40,7 @@
                 <file leaf-file-name="addons.py" pinned="false" current-in-tab="false">
                   <entry file="file://$PROJECT_DIR$/addons.py">
                     <provider selected="true" editor-type-id="text-editor">
-                      <state relative-caret-position="671">
+                      <state relative-caret-position="685">
                         <caret line="70" selection-start-line="70" selection-end-line="70" />
                         <folding>
                           <element signature="e#0#39#0" expanded="true" />
@@ -65,8 +52,8 @@
                 <file leaf-file-name="exampleinput.txt" pinned="false" current-in-tab="true">
                   <entry file="file://$PROJECT_DIR$/exampleinput.txt">
                     <provider selected="true" editor-type-id="text-editor">
-                      <state relative-caret-position="609">
-                        <caret line="64" column="1" selection-start-line="64" selection-start-column="1" selection-end-line="64" selection-end-column="1" />
+                      <state relative-caret-position="660">
+                        <caret line="66" column="36" selection-start-line="66" selection-start-column="28" selection-end-line="66" selection-end-column="36" />
                       </state>
                     </provider>
                   </entry>
@@ -85,40 +72,10 @@
           <file leaf-file-name="pybinar.py" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/pybinar.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="201">
-                  <caret line="95" column="38" lean-forward="true" selection-start-line="95" selection-start-column="38" selection-end-line="95" selection-end-column="38" />
+                <state relative-caret-position="334">
+                  <caret line="135" column="85" selection-start-line="135" selection-start-column="85" selection-end-line="135" selection-end-column="85" />
                   <folding>
                     <element signature="e#0#10#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="codecs.py" pinned="false" current-in-tab="false">
-            <entry file="file://$USER_HOME$/AppData/Local/Continuum/anaconda3/Lib/codecs.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="201">
-                  <caret line="310" selection-start-line="310" selection-end-line="310" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="rand.py" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/rand.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="102">
-                  <caret line="7" column="25" selection-start-line="7" selection-start-column="25" selection-end-line="7" selection-end-column="25" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="readParametrs.py" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/readParametrs.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="-1839">
-                  <caret line="33" column="36" selection-start-line="33" selection-start-column="36" selection-end-line="33" selection-end-column="36" />
-                  <folding>
-                    <element signature="e#0#37#0" expanded="true" />
                   </folding>
                 </state>
               </provider>
@@ -131,20 +88,11 @@
           <file leaf-file-name="atom.py" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/atom.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="153">
-                  <caret line="9" column="21" selection-start-line="9" selection-start-column="21" selection-end-line="9" selection-end-column="21" />
+                <state relative-caret-position="334">
+                  <caret line="130" selection-start-line="130" selection-end-line="138" />
                   <folding>
                     <element signature="e#0#9#0" expanded="true" />
                   </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="ru" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/Local/ru">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="170">
-                  <caret line="10" column="37" selection-start-line="10" selection-start-column="37" selection-end-line="10" selection-end-column="37" />
                 </state>
               </provider>
             </entry>
@@ -158,13 +106,72 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="cells.py" pinned="false" current-in-tab="true">
+          <file leaf-file-name="cells.py" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/cells.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="134">
+                <state relative-caret-position="-478">
                   <caret line="85" column="91" selection-start-line="85" selection-start-column="91" selection-end-line="85" selection-end-column="91" />
                   <folding>
                     <element signature="e#0#9#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="ru" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/Local/ru">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="350">
+                  <caret line="28" column="51" selection-start-line="28" selection-start-column="51" selection-end-line="28" selection-end-column="55" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="rand.py" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/rand.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="170">
+                  <caret line="14" column="32" lean-forward="true" selection-start-line="14" selection-start-column="32" selection-end-line="14" selection-end-column="32" />
+                  <folding>
+                    <element signature="e#0#9#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="random.py" pinned="false" current-in-tab="false">
+            <entry file="file://$USER_HOME$/AppData/Local/Continuum/anaconda3/Lib/random.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="158">
+                  <caret line="110" selection-start-line="110" selection-end-line="110" />
+                  <folding>
+                    <element signature="e#952#986#0" expanded="true" />
+                    <element signature="e#5297#5363#0" />
+                    <element signature="e#7877#9077#0" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="position.py" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/position.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="340">
+                  <caret line="20" selection-start-line="20" selection-end-line="20" />
+                  <folding>
+                    <element signature="e#0#9#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="readParametrs.py" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/readParametrs.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="272">
+                  <caret line="16" column="26" selection-start-line="16" selection-start-column="26" selection-end-line="16" selection-end-column="26" />
+                  <folding>
+                    <element signature="e#0#37#0" expanded="true" />
                   </folding>
                 </state>
               </provider>
@@ -189,9 +196,19 @@
       <find>atom</find>
       <find>time</find>
       <find>key</find>
-      <find>count</find>
       <find>atomcount</find>
+      <find>random</find>
+      <find>self.random</find>
+      <find>random)</find>
+      <find>random(</find>
+      <find>count</find>
+      <find>random(sel</find>
+      <find>step</find>
+      <find>ran</find>
     </findStrings>
+    <replaceStrings>
+      <replace>atomTEMPcount</replace>
+    </replaceStrings>
   </component>
   <component name="Git.Settings">
     <option name="ROOT_SYNC" value="DONT_SYNC" />
@@ -200,17 +217,18 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/rand.py" />
         <option value="$PROJECT_DIR$/position.py" />
         <option value="$PROJECT_DIR$/atom.py" />
         <option value="$PROJECT_DIR$/supercell.py" />
         <option value="$PROJECT_DIR$/localisation.py" />
         <option value="$PROJECT_DIR$/addons.py" />
-        <option value="$PROJECT_DIR$/readParametrs.py" />
-        <option value="$PROJECT_DIR$/Local/ru" />
-        <option value="$PROJECT_DIR$/exampleinput.txt" />
-        <option value="$PROJECT_DIR$/pybinar.py" />
         <option value="$PROJECT_DIR$/cells.py" />
+        <option value="$PROJECT_DIR$/exampleinput - results/00 - result.txt" />
+        <option value="$PROJECT_DIR$/rand.py" />
+        <option value="$PROJECT_DIR$/Local/ru" />
+        <option value="$PROJECT_DIR$/pybinar.py" />
+        <option value="$PROJECT_DIR$/exampleinput.txt" />
+        <option value="$PROJECT_DIR$/readParametrs.py" />
       </list>
     </option>
   </component>
@@ -341,24 +359,6 @@
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
     </configuration>
-    <configuration name="position" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="pybinar" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/position.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-    </configuration>
     <configuration name="pybinar 0p" type="PythonConfigurationType" factoryName="Python">
       <module name="pybinar" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -431,6 +431,42 @@
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
     </configuration>
+    <configuration name="rand" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="pybinar" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/rand.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+    </configuration>
+    <configuration name="random" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="pybinar" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$USER_HOME$/AppData/Local/Continuum/anaconda3/Lib" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$USER_HOME$/AppData/Local/Continuum/anaconda3/Lib/random.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+    </configuration>
     <configuration name="readParametrs" type="PythonConfigurationType" factoryName="Python">
       <module name="pybinar" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -458,16 +494,17 @@
       <item itemvalue="Python.readParametrs" />
       <item itemvalue="Python.cells" />
       <item itemvalue="Python.atom" />
-      <item itemvalue="Python.position" />
       <item itemvalue="Python.addons" />
+      <item itemvalue="Python.rand" />
+      <item itemvalue="Python.random" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.rand" />
+        <item itemvalue="Python.random" />
         <item itemvalue="Python.addons" />
         <item itemvalue="Python.cells" />
         <item itemvalue="Python.atom" />
-        <item itemvalue="Python.position" />
-        <item itemvalue="Python.pybinar 2p" />
       </list>
     </recent_temporary>
   </component>
@@ -524,13 +561,23 @@
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/pybinar.py</url>
-          <line>108</line>
+          <line>114</line>
           <option name="timeStamp" value="43" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/pybinar.py</url>
-          <line>105</line>
-          <option name="timeStamp" value="47" />
+          <line>91</line>
+          <option name="timeStamp" value="48" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/rand.py</url>
+          <line>109</line>
+          <option name="timeStamp" value="50" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/rand.py</url>
+          <line>27</line>
+          <option name="timeStamp" value="51" />
         </line-breakpoint>
       </breakpoints>
       <default-breakpoints>
@@ -540,32 +587,16 @@
           </properties>
         </breakpoint>
       </default-breakpoints>
-      <option name="time" value="48" />
+      <option name="time" value="52" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="PythonConfigurationType">
         <watch expression="list(data.cell.atomcount.items())" />
+        <watch expression="f" />
       </configuration>
     </watches-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/pybinar.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" selection-start-line="2" selection-end-line="2" selection-end-column="37" />
-          <folding>
-            <element signature="e#0#10#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/readParametrs.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="14" column="18" selection-start-line="14" selection-start-column="18" selection-end-line="14" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/rand.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
@@ -814,43 +845,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/position.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="20" selection-start-line="20" selection-end-line="20" />
-          <folding>
-            <element signature="e#0#9#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/rand.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="7" column="25" selection-start-line="7" selection-start-column="25" selection-end-line="7" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/addons.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="759">
-          <caret line="73" column="36" selection-start-line="73" selection-start-column="35" selection-end-line="73" selection-end-column="36" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/readParametrs.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1839">
-          <caret line="33" column="36" selection-start-line="33" selection-start-column="36" selection-end-line="33" selection-end-column="36" />
-          <folding>
-            <element signature="e#0#37#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/AppData/Local/Continuum/anaconda3/Lib/codecs.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="201">
@@ -858,36 +852,48 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Local/ru">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="37" selection-start-line="10" selection-start-column="37" selection-end-line="10" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/atom.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="21" selection-start-line="9" selection-start-column="21" selection-end-line="9" selection-end-column="21" />
+        <state relative-caret-position="334">
+          <caret line="130" selection-start-line="130" selection-end-line="138" />
           <folding>
             <element signature="e#0#9#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pybinar.py">
+    <entry file="file://$PROJECT_DIR$/position.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="201">
-          <caret line="95" column="38" lean-forward="true" selection-start-line="95" selection-start-column="38" selection-end-line="95" selection-end-column="38" />
+        <state relative-caret-position="340">
+          <caret line="20" selection-start-line="20" selection-end-line="20" />
           <folding>
-            <element signature="e#0#10#0" expanded="true" />
+            <element signature="e#0#9#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.PyCharmCE2018.1/system/python_stubs/106604934/_random.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1054">
+          <caret line="10" column="13" selection-start-line="10" selection-start-column="6" selection-end-line="10" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Continuum/anaconda3/Lib/random.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="158">
+          <caret line="110" selection-start-line="110" selection-end-line="110" />
+          <folding>
+            <element signature="e#952#986#0" expanded="true" />
+            <element signature="e#5297#5363#0" />
+            <element signature="e#7877#9077#0" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/cells.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="134">
+        <state relative-caret-position="-478">
           <caret line="85" column="91" selection-start-line="85" selection-start-column="91" selection-end-line="85" selection-end-column="91" />
           <folding>
             <element signature="e#0#9#0" expanded="true" />
@@ -895,17 +901,64 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/exampleinput.txt">
+    <entry file="file://$PROJECT_DIR$/addons.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="609">
-          <caret line="64" column="1" selection-start-line="64" selection-start-column="1" selection-end-line="64" selection-end-column="1" />
+        <state relative-caret-position="685">
+          <caret line="70" selection-start-line="70" selection-end-line="70" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/rand.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="14" column="32" lean-forward="true" selection-start-line="14" selection-start-column="32" selection-end-line="14" selection-end-column="32" />
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Local/ru">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="350">
+          <caret line="28" column="51" selection-start-line="28" selection-start-column="51" selection-end-line="28" selection-end-column="55" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/exampleinput - results/00 - result.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3468">
-          <caret line="204" column="43" lean-forward="true" selection-start-line="204" selection-start-column="43" selection-end-line="204" selection-end-column="43" />
+        <state relative-caret-position="711">
+          <caret line="42" lean-forward="true" selection-start-line="42" selection-end-line="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/readParametrs.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="16" column="26" selection-start-line="16" selection-start-column="26" selection-end-line="16" selection-end-column="26" />
+          <folding>
+            <element signature="e#0#37#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pybinar.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="334">
+          <caret line="135" column="85" selection-start-line="135" selection-start-column="85" selection-end-line="135" selection-end-column="85" />
+          <folding>
+            <element signature="e#0#10#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/exampleinput.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="660">
+          <caret line="66" column="36" selection-start-line="66" selection-start-column="28" selection-end-line="66" selection-end-column="36" />
         </state>
       </provider>
     </entry>
