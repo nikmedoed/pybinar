@@ -1,6 +1,7 @@
 import os
 from localisation import localisation
 from math import sqrt
+import re
 
 class position (object):
     def __init__(self, x, y = None, z = None):
@@ -198,7 +199,10 @@ class position (object):
         # - x ≥ y вызывает x.__ge__(y).
 
     def __str__(self):
-        t ="% 12.5f% 12.5f% 12.5f" % (self.x, self.y, self.z)
+        # t ="% 17.10f% 17.10f% 17.10f" % (self.x, self.y, self.z)
+        # t = "%17s %17s %17s" % (tuple(map(lambda x: "% 7d.%-10s" % (x // 1, str(x % 1)[3:] if len(str(x % 1)[3:]) > 0 else "0") ,[self.x, self.y, self.z])))
+        t = "%15s %15s %15s" % (tuple(map(lambda x: "% 5s.%-10s" % tuple(str(round(x,10)).split(".")), [self.x, self.y, self.z])))
+        # t = t.replace("00", "  ")
         return t
 
     def __repr__(self):

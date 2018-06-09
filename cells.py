@@ -32,7 +32,7 @@ class cell(object):
                         self.elements.add(s[0])
                         self.atomcount[s[0]] = 0
                     self.atomcount[s[0]] += 1
-                    self.atoms.append(atom(s[0], s[1], s[2], s[3], local))
+                    self.atoms.append(atom(s[0], s[1], s[2], s[3], local).setpow(s[4]))
         self.atomcount = list(self.atomcount.items())
         self.atomcount.sort(key=lambda x: x[0])
         self.atoms.sort(key=lambda x: x.name)
@@ -43,7 +43,6 @@ class cell(object):
         return r
 
     def printatomsNumeric(self):
-
         self.atomTEMPcount = dict.fromkeys(self.elements, 0)
         r = ""
         r += "\n".join(list(map(lambda x: numericListFromDic(self.atomTEMPcount, x.name) + str(x), self.atoms)))

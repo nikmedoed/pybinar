@@ -103,8 +103,9 @@ class inData(object):
         self.random = rand(conditions[1], conditions[2], local)
         self.insertionRules = []
         for k in conditions[3:]:
-            i = k.replace(">", " ").split()
-            i[2] = int(i[2])
+            i = k.replace(">", " ").replace("(", " ").replace(")", " ").split()
+            i[2] = float(i[2])
+            i[3] = int(i[3])
             self.insertionRules.append(i)
 
         const = self.rawparam['Сonstraints']

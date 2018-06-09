@@ -13,6 +13,7 @@ class atom(object):
         self.name = name
         self.pos = position(a)
         self.cell = cell
+        self.pow = 0
         pass
         # self.x, self.y, self.z = list(map(float, [x, y, z]))
 
@@ -20,7 +21,9 @@ class atom(object):
         self.cell = n
         return self
 
-
+    def setpow(self, pow):
+        self.pow = float(pow)
+        return self
 
     def __str__(self):
         t = "  \x1b[33m%-3s\x1b[0m%s" % (self.name, self.pos)
