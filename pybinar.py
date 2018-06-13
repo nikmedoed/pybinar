@@ -5,6 +5,7 @@ import os
 from readParametrs import inData
 from functools import reduce
 from time import strftime, gmtime, sleep
+import graph
 
 from addons import *
 # class pybinar(object):
@@ -44,12 +45,11 @@ if __name__ == "__main__":
     print(loc["ResOut"] + ": \x1b[36m"+outputfold+"\x1b[0m")
     print()
 
-    try:
-        os.stat(outputfold)
-    except:
+    if not os.path.exists(outputfold):
         os.mkdir(outputfold)
+    os.chdir(outputfold)
 
-    outputfile = outputfold + "/00 - result.txt"
+    outputfile = "00 - result.txt"
 
     data = inData(input, texts)
     start = time()
@@ -58,11 +58,12 @@ if __name__ == "__main__":
     # sleep(2)
     # todo рассчёт вероятности
     # todo рассчёт хи^2
-    # todo вбросы атомов
-    # todo график хи^2
     # todo логика эксперимента исходя из входных условий
 
     end = time()
+
+    # graph.plot(c, d, name="как", fold="rfolder", local=local) как будет чем, дописать
+
     with open(outputfile, "w", encoding="utf-8") as out:
         pr = out.write
         pr("\n".join(
@@ -123,7 +124,7 @@ if __name__ == "__main__":
         pr("%s:\t%s\n" % (loc["GeneratorP"], data.random.randomp))
         pr("\n")
         pr("%s:\n" % (loc["Rules"]))
-        pr("%s\n" % "\n".join(list(map(lambda x: " %6s > %-6s(e = %s) %d" % tuple(x), data.insertionRules))))
+        pr("%s\n" % "\n".join(list(map(lambda x: " %6s > %-6s(q = %s) %d" % tuple(x), data.insertionRules))))
         pr("\n")
         pr("%15s - %s\n" % (data.sphere1, loc["Sphere1"]))
         pr("%15s - %s\n" % (data.sphere2, loc["Sphere2"]))

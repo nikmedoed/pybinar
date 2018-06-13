@@ -1,5 +1,6 @@
 from time import time, strftime, gmtime
 import re
+from copy import deepcopy as dc
 
 def coolTime(s):
     r = ""

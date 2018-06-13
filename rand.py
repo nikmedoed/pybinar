@@ -20,10 +20,6 @@ class rand(object):
             self.rand = random.Random(x=randomp)
             # ToDo сделать интерпретацию генераторов
 
-
-
-        pass
-
     def rnd(self, x = 1, f = float, step=None): # в том числе дробные шаги
         if step:
             r = round(f(self.rand.random() * x) / step) * step
@@ -43,7 +39,7 @@ class rand(object):
             x, y, z = args
         return position.position(self.rnd(x, **fun), self.rnd(y, **fun), self.rnd(z, **fun))
 
-    def settime(self, t):
+    def settime(self, t = time.time()):
         if self.randomp == "TIME":
             self.randomp = t
             self.rand.seed(t)
@@ -102,11 +98,17 @@ class rand(object):
 
 
 if __name__ == "__main__":
-    a = rand(0, "TIME")
-    b = rand(0, "TIME")
-    print(a)
-
-    b.settime(time.time())
-    print(b.rndpos(step=0.1))
-
+    # a = rand(0, "TIME")
+    # b = rand(0, "TIME")
+    # print(a)
+    #
+    # b.settime(time.time())
+    # print(b.rndpos(step=0.1))
+    c = rand('0', "TIME")
+    k = 0
+    for i in range(10000):
+        k += 1
+        if c.rnd(10, int) == 9:
+            print("OK", k)
+            k = 0
 

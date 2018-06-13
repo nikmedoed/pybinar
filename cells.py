@@ -3,39 +3,64 @@ from localisation import localisation
 from atom import atom
 from addons import *
 from functools import reduce
+import rand
 
 
 class cell(object):
-    def __init__(self, name="", local = localisation()):
-        self.loc = local.loc(__file__) # text for this file
-        self.file = name
-        self.filemain = ""
-        self.cell_abc = []
-        self.cell_ang = []
-        self.atoms = []
-        main = True
-        self.elements = set()
-        self.atomcount = dict()
-        with open(name, "r") as file:
-            for i in file:
-                if "_cell_length" in i:
-                    self.cell_abc.append(float(i.split()[1]))
-                if "_cell_angle" in i:
-                    self.cell_ang.append(float(i.split()[1]))
-                if main:
-                    if len(i.split()) > 3 : main = False
-                if main:
-                    self.filemain += i
-                else:
-                    s = i.split()
-                    if not (s[0] in self.elements):
-                        self.elements.add(s[0])
-                        self.atomcount[s[0]] = 0
-                    self.atomcount[s[0]] += 1
-                    self.atoms.append(atom(s[0], s[1], s[2], s[3], local).setpow(s[4]))
-        self.atomcount = list(self.atomcount.items())
+    def __init__(self, name, local = localisation()):
+        if type(name) is cell:
+            self.loc = name.loc
+            self.file = name.file
+            self.filemain = name.filemain
+            self.cell_abc = name.cell_abc
+            self.cell_ang = name.cell_ang
+            self.elements = dc(name.elements)
+            self.atomcountdict = name.atomcount
+            self.atoms = dc(name.atoms)
+            self.atomsBYelements = dc(name.atomsBYelements)
+        else:
+            self.loc = local.loc(__file__) # text for this file
+            self.file = name
+            self.filemain = ""
+            self.cell_abc = []
+            self.cell_ang = []
+            self.atoms = []
+            main = True
+            self.elements = set()
+            self.atomcountdict = dict()
+            with open(name, "r") as file:
+                for i in file:
+                    if "_cell_length" in i:
+                        self.cell_abc.append(float(i.split()[1]))
+                    if "_cell_angle" in i:
+                        self.cell_ang.append(float(i.split()[1]))
+                    if main:
+                        if len(i.split()) > 3 : main = False
+                    if main:
+                        self.filemain += i
+                    else:
+                        s = i.split()
+                        if not (s[0] in self.elements):
+                            self.elements.add(s[0])
+                            self.atomcountdict[s[0]] = 0
+                        self.atomcountdict[s[0]] += 1
+                        self.atoms.append(atom(s[0], s[1], s[2], s[3], local).setpow(s[4]))
+            self.atomcount = list(self.atomcountdict.items())
+            self.atomcount.sort(key=lambda x: x[0])
+            self.atoms.sort(key=lambda x: x.name)
+            self.atomsBYelements = dict.fromkeys(self.elements)
+            for i in self.elements:
+                self.atomsBYelements[i] = list(filter(lambda x: x.name == i, self.atoms))
+
+    def refresh(self):
+        self.atomcount = list(self.atomcountdict.items())
         self.atomcount.sort(key=lambda x: x[0])
-        self.atoms.sort(key=lambda x: x.name)
+
+    def getAtoms(self):
+        self.atoms = []
+        for i in self.atomcount:
+            self.atoms.extend(self.atomsBYelements[i[0]])
+        return self.atoms
 
     def printatoms(self):
         r = ""
@@ -74,28 +99,53 @@ class cell(object):
         return r
 
 class supercell(object):
-    def __init__(self, cell, xyz, local = localisation()):
-        self.loc = local.loc(__file__) # text for this file
-        self.cell = cell
-        self.xyz = xyz
-        self.atoms = [] # список атомов, в каждом указана связанная с ним ячейка
-        self.cells = [] # позиции ячеек
-        self.Cmul = reduce(lambda x, y: x*y, self.xyz)
-        cellnum = 0
-        self.atomcount = list(map(lambda a: [a[0], a[1] * self.Cmul], self.cell.atomcount))
-        if cell.atoms == []: local.seterr(self.loc["CellNull"])
+    def __init__(self, cell, xyz=None, local = localisation()):
+        if xyz is None:
+            xyz = [1, 1, 1]
+        if type(cell) is supercell:
+            pass
+            raise NotImplementedError("Now I can't to do copy, use dc() (deepcopy)")
+            #todo нормальное копирование
+        else:
+            self.loc = local.loc(__file__) # text for this file
+            self.cell = cell
+            self.xyz = xyz
+            self.atoms = [] # список атомов, в каждом указана связанная с ним ячейка
+            self.cells = [] # позиции ячеек
+            self.Cmul = reduce(lambda x, y: x*y, self.xyz)
+            cellnum = 0
+            self.atomcount = list(map(lambda a: [a[0], a[1] * self.Cmul], self.cell.atomcount))
+            if cell.atoms == []: local.seterr(self.loc["CellNull"])
 
-        for x in range(self.xyz[0]):
-            for y in range(self.xyz[1]):
-                for z in range(self.xyz[2]):
-                    temp = []
-                    for i in cell.atoms:
-                        temp.append((i + [x, y, z]).setcell(cellnum))
-                    self.atoms.extend(temp)
-                    cellnum += 1
-                    self.cells.append([x, y, z])
-        self.atoms.sort(key=lambda x: x.name)
-        self.atomTEMPcount = dict.fromkeys(self.cell.elements, 0)
+            for x in range(self.xyz[0]):
+                for y in range(self.xyz[1]):
+                    for z in range(self.xyz[2]):
+                        temp = []
+                        for i in cell.atoms:
+                            temp.append((i + [x, y, z]).setcell(cellnum))
+                        self.atoms.extend(temp)
+                        cellnum += 1
+                        self.cells.append([x, y, z])
+            self.atoms.sort(key=lambda x: x.name)
+            self.atomTEMPcount = dict.fromkeys(self.cell.elements, 0)
+            self.atomsBYelements = dict.fromkeys(self.cell.elements)
+            for i in self.cell.elements:
+                self.atomsBYelements[i] = list(filter(lambda x: x.name == i, self.atoms))
+
+    def refresh(self):
+        self.cell.refresh()
+        self.atomcount = list(map(lambda a: [a[0], a[1] * self.Cmul], self.cell.atomcount))
+        self.atomsBYelements = dict.fromkeys(self.cell.elements)
+        for i in self.cell.elements:
+            self.atomsBYelements[i] = list(filter(lambda x: x.name == i, self.atoms))
+        # self.getAtoms() #замедлит работу. надо ли? может делать именно для вывода?
+
+
+    def getAtoms(self):
+        self.atoms = []
+        for i in self.atomcount:
+            self.atoms.extend(self.atomsBYelements[i[0]])
+        return self.atoms
 
     def printatoms(self):
         r = ""
@@ -104,6 +154,20 @@ class supercell(object):
             self.atoms
         )))
         return r
+
+    def inserAtoms(self, rand, rule):
+        self.cell.elements.add(rule[1])
+        t = self.atomsBYelements[rule[0]]
+        l = len(t)
+        res = []
+        for i in range(rule[3]):
+            r = rand.rnd(l, int)
+            t[r].name = rule[1]
+            t[r].pow = rule[2]
+            res.append(t[r])
+        self.cell.atomcountdict[rule[1]]= rule[3]
+        self.cell.atomcountdict[rule[0]] -= rule[3]
+        return res
 
     def printatomsNumeric(self):
         self.atomTEMPcount = dict.fromkeys(self.cell.elements, 0)
@@ -146,5 +210,29 @@ if __name__ == "__main__":
     #     ])
     # )
     # print(s)
-    print(s.printatomsNumeric())
+    # d = supercell(s)
+    # d.file = "dfdfdf"
+    # print(c.file)
+    # for i in s.atomsBYelements['Fe1']:
+    #     print(i)
+    # print(d)
+    # print(s.printatomsNumeric())
+    sc = dc(s)
+    r = ['Fe1', 'Sas', 1.5, 10]
+    ran = rand.rand("0", "TIME", local)
+    z = sc.inserAtoms(ran, r)
+    ran.settime()
+    sc.refresh()
+    g = sc.getAtoms()
+    # d = dict.fromkeys(range(8), 0)
+    # for i in range(10000):
+    #     z = sc.inserAtoms(ran, r)
+    #     for k in z:
+    #         d[k.cell] += 1
+    # print(d)
+
+    # print("\n".join(list(map(lambda x: repr(x), z))))
+
+
+    print(sc)
 

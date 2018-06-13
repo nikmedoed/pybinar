@@ -8,7 +8,14 @@ class atom(object):
             a = [x, y, z]
         else:
             if y: local = y
-            a = x
+            if x:
+                if type(x) == localisation:
+                    local = x
+                    a = [0] * 3
+                else:
+                    a = x
+            else:
+                a = [0] * 3
         self.loc = local.loc(__file__)  # text for this file
         self.name = name
         self.pos = position(a)
@@ -30,7 +37,7 @@ class atom(object):
         return t
 
     def __repr__(self):
-        t = "class atom:  \x1b[33m%-3s\x1b[0m%s" % (self.name, self.pos)
+        t = "class atom:  \x1b[33m%-3s\x1b[0m%s cell: %d" % (self.name, self.pos, self.cell)
         return t
 
     def __add__(self, other):
