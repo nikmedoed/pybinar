@@ -47,7 +47,6 @@ if __name__ == "__main__":
 
     if not os.path.exists(outputfold):
         os.mkdir(outputfold)
-    os.chdir(outputfold)
 
     outputfile = "00 - result.txt"
 
@@ -64,6 +63,7 @@ if __name__ == "__main__":
 
     # graph.plot(c, d, name="как", fold="rfolder", local=local) как будет чем, дописать
 
+    os.chdir(outputfold)
     with open(outputfile, "w", encoding="utf-8") as out:
         pr = out.write
         pr("\n".join(
