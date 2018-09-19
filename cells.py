@@ -1,10 +1,10 @@
 import os
 from localisation import localisation
-from atom import atom
+from atom import atom, element
 from addons import *
 from functools import reduce
 import rand
-
+import math
 
 class cell(object):
     def __init__(self, name, local = localisation()):
@@ -12,8 +12,9 @@ class cell(object):
             self.loc = name.loc
             self.file = name.file
             self.filemain = name.filemain
-            self.cell_abc = name.cell_abc
+            self.cell_abc = name.cell_abc # ab gamma, ac betta, cb alpha
             self.cell_ang = name.cell_ang
+            self.cell_cos = list(map(lambda x: math.cos(x*math.pi/180), self.cell_ang))
             self.elements = dc(name.elements)
             self.atomcountdict = name.atomcount
             self.atoms = dc(name.atoms)
@@ -24,6 +25,7 @@ class cell(object):
             self.filemain = ""
             self.cell_abc = []
             self.cell_ang = []
+            self.cell_cos = []
             self.atoms = []
             main = True
             self.elements = set()
@@ -104,7 +106,7 @@ class supercell(object):
             xyz = [1, 1, 1]
         if type(cell) is supercell:
             pass
-            raise NotImplementedError("Now I can't to do copy, use dc() (deepcopy)")
+            raise NotImplementedError("Now I can't to copy, use dc() (deepcopy)")
             #todo нормальное копирование
         else:
             self.loc = local.loc(__file__) # text for this file
@@ -122,7 +124,7 @@ class supercell(object):
                     for z in range(self.xyz[2]):
                         temp = []
                         for i in cell.atoms:
-                            temp.append((i + [x, y, z]).setcell(cellnum))
+                            temp.append((i + [x, y, z]).setcell(cellnum).setRealPos(self.cell.cell_abc))
                         self.atoms.extend(temp)
                         cellnum += 1
                         self.cells.append([x, y, z])
@@ -131,6 +133,29 @@ class supercell(object):
             self.atomsBYelements = dict.fromkeys(self.cell.elements)
             for i in self.cell.elements:
                 self.atomsBYelements[i] = list(filter(lambda x: x.name == i, self.atoms))
+
+    def addNeighbours(self, sprad, fil=None):
+        atoms = self.atoms
+        [x, y, z] = list(map(lambda x: x[0]*x[1],zip(self.xyz,self.cell.cell_abc)))
+        corrections = []
+        nei = -1
+        for a in [-x,0,x]:
+            for b in [-y,0,y]:
+                for c in [-z,0,z]:
+                    corrections.append([a,b,c])
+        if fil:
+            atoms = list(filter(lambda x: x.element in fil, atoms))
+        for i in atoms:
+            i.neighbours = list(filter(lambda x: (i!=x) and any( i.rdist(x.realpos + y, self.cell.cell_cos) <= sprad
+                                                                 for y in corrections), atoms))
+            if nei==-1:
+                nei = len(i.neighbours)
+            else:
+                if nei!= len(i.neighbours):
+                    print (self.loc['Neighbours'], i)
+                # Todo бросать ошибку , если число соседей не совпало
+                # local.seterr(self.loc["CellNull"])
+        return nei
 
     def refresh(self):
         self.cell.refresh()

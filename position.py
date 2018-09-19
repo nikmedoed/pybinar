@@ -129,12 +129,14 @@ class position (object):
             self.z %= other.z
         return self
 
-    def dist(self, other):
+    def dist(self, other, ang=None):
         # if type(other) is list:
         #     r = sqrt((self.x - other[0])**2 + (self.y - other[1])**2 + (self.z - other[2])**2)
         # else:
-        r = abs(self - other)
-        return r
+        r = sum((self-other)**2)
+        if ang:
+            r += 2*sum([self.y*self.x*ang[0], self.x*self.z*ang[1],  self.z*self.y*ang[2]])
+        return sqrt(r)
 
     def __pow__(self, other):
         # __pow__(self, other[, modulo]) - возведениестепень(x ** y, pow(x, y[, modulo]))

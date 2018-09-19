@@ -51,13 +51,33 @@ if __name__ == "__main__":
     outputfile = "00 - result.txt"
 
     data = inData(input, texts)
+    # todo рассчёт теоретической вероятности
+
+    # todo рассчёт идеального Q
+
     start = time()
     data.random.settime(start)
 
     # sleep(2)
-    # todo рассчёт вероятности
+
+    # todo итерация вбрасывания
+    # todo рассчёт вероятности для итерации
     # todo рассчёт хи^2
-    # todo логика эксперимента исходя из входных условий
+    # todo рассчёт Q для эксперимента
+
+    # todo итерация вбрасывания
+    # todo вывод данных инитерации, втом числе в файлы галп, циф, диаграмма
+
+    # todo цикл с ограничением по времени и срабатыванию на улучшения
+
+    # todo выводи итога в зависимости от параметров
+
+    # todo подробная диагностическая информация
+
+    # todo аналатика, ошибки
+
+    # todo оптимизировать рассчёт/распараллелить
+
 
     end = time()
 
@@ -127,7 +147,7 @@ if __name__ == "__main__":
         pr("%s\n" % "\n".join(list(map(lambda x: " %6s > %-6s(q = %s) %d" % tuple(x), data.insertionRules))))
         pr("\n")
         pr("%15s - %s\n" % (data.sphere1, loc["Sphere1"]))
-        pr("%15s - %s\n" % (data.sphere2, loc["Sphere2"]))
+        # pr("%15s - %s\n" % (data.sphere2, loc["Sphere2"]))
         pr("%15s - %s\n" % (loc["ToLess"] if data.x2toLess else loc["ToMore"], loc["Direct"]))
         pr("%15s - %s\n" % (data.x2stop, loc["Ground"]))
 

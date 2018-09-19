@@ -5,6 +5,7 @@ import os
 import json
 
 from cells import cell, supercell
+from atom import element
 
 class printparam(object):
     """
@@ -111,11 +112,17 @@ class inData(object):
         const = self.rawparam['Сonstraints']
         self.timeLimit = int(const[0])*60 if not (":" in const[0]) else \
             sum(map(lambda x, y: int(x)*y, const[0].split(":"), [3600, 60, 1]))
+        k=1
+        # self.sphere2 = float(const[1])
+        self.sphere1 = float(const[k])
+        k+=1
+        self.x2toLess = "0" == const[k]
+        k+=1
+        self.x2stop = float(const[k])
+        self.x2stop = float(const[k])
 
-        self.sphere2 = float(const[1])
-        self.sphere1 = float(const[2])
-        self.x2toLess = "0" == const[3]
-        self.x2stop = float(const[4])
+        self.atomsForChange = set(element(x[0]) for x in self.insertionRules).union(element(x[1]) for x in self.insertionRules)
+        self.neigboards = self.supercell.addNeighbours(self.sphere1, self.atomsForChange)
 
         outp = self.rawparam["Output"]
         tmp = outp[0].split()
@@ -146,7 +153,7 @@ class inData(object):
             "\n\x1b[32mRules\x1b[0m",
             str(self.insertionRules),
             "\n\x1b[32mParam\x1b[0m",
-            "sphere2:\t" + str(self.sphere2),
+            # "sphere2:\t" + str(self.sphere2),
             "sphere1:\t" + str(self.sphere1),
             "x2toLess:\t" + str(self.x2toLess),
             "x2stop:\t" + str(self.x2stop),

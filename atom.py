@@ -1,6 +1,10 @@
 import os
 from localisation import localisation
 from position import position
+import re
+
+def element(e):
+    return re.sub(r'\d', '', e)
 
 class atom(object):
     def __init__(self, name, x, y = None, z = None, cell = 0, local = localisation()):
@@ -18,11 +22,19 @@ class atom(object):
                 a = [0] * 3
         self.loc = local.loc(__file__)  # text for this file
         self.name = name
+        self.initname = name
+        self.element = element(self.name)
         self.pos = position(a)
         self.cell = cell
         self.pow = 0
+        self.neighbours=[]
+        self.realpos = None
         pass
         # self.x, self.y, self.z = list(map(float, [x, y, z]))
+
+    def setRealPos(self, abc):
+        self.realpos = self.pos * abc
+        return self
 
     def setcell(self, n):
         self.cell = n
@@ -100,9 +112,13 @@ class atom(object):
         self.pos %= other
         return self
 
-    def dist(self, other):
+    def dist(self, other, ang= None):
         if type(other) is atom: other = other.pos
-        return self.pos.dist(other)
+        return self.pos.dist(other, ang)
+
+    def rdist(self, other, ang=None):
+        if type(other) is atom: other = other.realpos
+        return self.realpos.dist(other, ang)
 
     def __abs__(self):
         return self.pos.__abs__()
