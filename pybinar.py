@@ -1,11 +1,11 @@
 import sys
-# import readParametrs
 from localisation import localisation
 import os
 from readParametrs import inData
 from functools import reduce
 from time import strftime, gmtime, sleep
 import graph
+import pickle
 
 from addons import *
 # class pybinar(object):
@@ -21,8 +21,6 @@ if __name__ == "__main__":
         
     """
     # try:
-
-
     input = "exampleinput.txt"
     outputfold = ""
     lang = ""
@@ -51,21 +49,17 @@ if __name__ == "__main__":
     outputfile = "00 - result.txt"
 
     data = inData(input, texts)
-    # todo рассчёт теоретической вероятности
-
-    # todo рассчёт идеального Q
 
     start = time()
     data.random.settime(start)
+    # while data.time<data.timeLimit:
+    #     data.iteration()
+    res = data.iteration()
+    res.makefiles(data, outputfold + '/iteration - {:0>5}'.format(1))
+    data.reset()
 
     # sleep(2)
 
-    # todo итерация вбрасывания
-    # todo рассчёт вероятности для итерации
-    # todo рассчёт хи^2
-    # todo рассчёт Q для эксперимента
-
-    # todo итерация вбрасывания
     # todo вывод данных инитерации, втом числе в файлы галп, циф, диаграмма
 
     # todo цикл с ограничением по времени и срабатыванию на улучшения
@@ -74,7 +68,7 @@ if __name__ == "__main__":
 
     # todo подробная диагностическая информация
 
-    # todo аналатика, ошибки
+    # todo аналитика, ошибки
 
     # todo оптимизировать рассчёт/распараллелить
 
@@ -92,7 +86,7 @@ if __name__ == "__main__":
                          ["StartTime", strftime("%Y.%m.%d  %H:%M:%S", gmtime(start))],
                          ["EndTime", strftime("%Y.%m.%d  %H:%M:%S", gmtime(end))],
                          ["TimeLimit", coolTime(data.timeLimit)],
-                         ["TotalSpend", coolTime(round(end - start, 4))]
+                         ["TotalSpend", coolTime(round(data.time, 4))]
                      ]))
         ))
         pr("\n")
@@ -144,7 +138,7 @@ if __name__ == "__main__":
         pr("%s:\t%s\n" % (loc["GeneratorP"], data.random.randomp))
         pr("\n")
         pr("%s:\n" % (loc["Rules"]))
-        pr("%s\n" % "\n".join(list(map(lambda x: " %6s > %-6s(q = %s) %d" % tuple(x), data.insertionRules))))
+        pr("%s\n" % "\n".join(list(map(lambda x: " %+2d:" % (x[4]+1) + " %6s > %-6s(q = %.2f) %d" % tuple(x[:4]), data.insertionRules))))
         pr("\n")
         pr("%15s - %s\n" % (data.sphere1, loc["Sphere1"]))
         # pr("%15s - %s\n" % (data.sphere2, loc["Sphere2"]))
@@ -158,7 +152,7 @@ if __name__ == "__main__":
         pr("%15s - %s\n" % (data.Ntoprint, loc["PrintIterator"]))
 
 
-    # todo вывод данных
+    # todo вывод основных данных
 
     # except:
     #     msg = ""

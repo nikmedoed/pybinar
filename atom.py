@@ -23,14 +23,39 @@ class atom(object):
         self.loc = local.loc(__file__)  # text for this file
         self.name = name
         self.initname = name
+        self.pow = 0
+        self.initpow = 0
+        self.rule = -1
         self.element = element(self.name)
         self.pos = position(a)
         self.cell = cell
-        self.pow = 0
         self.neighbours=[]
         self.realpos = None
         pass
         # self.x, self.y, self.z = list(map(float, [x, y, z]))
+
+    # todo индексы атомов
+
+
+    def getelement(self, i=-1):
+        return element(self.getname(i))
+
+    def getname(self, i=-1):
+        if self.rule == i or i == -1:
+            return self.name
+        else:
+            return self.initname
+
+    def reset(self):
+        self.name = self.initname
+        self.pow = self.initpow
+        self.rule = -1
+
+    def getpow(self, i=-1):
+        if self.rule == i:
+            return self.pow
+        else:
+            return self.initpow
 
     def setRealPos(self, abc):
         self.realpos = self.pos * abc
@@ -42,6 +67,7 @@ class atom(object):
 
     def setpow(self, pow):
         self.pow = float(pow)
+        self.initpow = self.pow
         return self
 
     def __str__(self):

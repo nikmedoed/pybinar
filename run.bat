@@ -1,0 +1,1 @@
+python pybinar.py exampleinput.txt /rfolder #
