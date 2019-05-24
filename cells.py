@@ -7,7 +7,13 @@ import rand
 import math
 
 class cell(object):
-    def __init__(self, name, local = localisation()):
+    def __init__(self,
+                 name,
+                 local = localisation(),
+                 file="NoneFile",
+                 cell_abc=[1, 1, 1],
+                 cell_ang=[90, 90, 90]
+                 ):
         if type(name) is cell:
             self.loc = name.loc
             self.file = name.file
@@ -19,6 +25,25 @@ class cell(object):
             self.atomcountdict = name.atomcount
             self.atoms = dc(name.atoms)
             self.atomsBYelements = dc(name.atomsBYelements)
+        elif type(name) is list:
+            self.file = file
+            self.cell_abc = cell_abc
+            self.cell_ang = cell_ang
+            self.cell_cos = []
+            self.elements = set()
+            self.atoms = name
+            self.loc = local.loc(__file__)
+            self.filemain = ""
+            self.cell_cos = list(map(lambda x: math.cos(x*math.pi/180), self.cell_ang))
+            self.atomcountdict = dict()
+            for i in name:
+                if not (i.name in self.elements):
+                    self.elements.add(i.name)
+                    self.atomcountdict[i.name] = 0
+                self.atomcountdict[i.name] += 1
+            self.atomsBYelements = dict.fromkeys(self.elements)
+            for i in self.elements:
+                self.atomsBYelements[i] = list(filter(lambda x: x.name == i, self.atoms))
         else:
             self.loc = local.loc(__file__) # text for this file
             self.file = name
@@ -42,9 +67,10 @@ class cell(object):
                         self.filemain += i
                     else:
                         s = i.split()
-                        if not (s[0] in self.elements):
-                            self.elements.add(s[0])
-                            self.atomcountdict[s[0]] = 0
+                        if len(s) > 0: # проверить безопасность на примере кати 55к
+                            if not (s[0] in self.elements):
+                                self.elements.add(s[0])
+                                self.atomcountdict[s[0]] = 0
                         self.atomcountdict[s[0]] += 1
                         self.atoms.append(atom(s[0], s[1], s[2], s[3], local).setpow(s[4]))
             self.atomcount = list(self.atomcountdict.items())
@@ -99,6 +125,18 @@ class cell(object):
             ]
         ))
         return r
+
+    def rotate(self, angles=[0, 0, 0]):
+        # Дано углы a,b,c
+        abc = list(map(lambda x: x*math.pi/180, angles))
+        cos = list(map(math.cos, abc))
+        sin = list(map(math.sin, abc))
+        for i in self.atoms:
+            i.rotate(cos, sin)
+        return self
+
+    def randRotate(self, rand):
+        self.rotate([rand.rnd(360), rand.rnd(360), rand.rnd(360)])
 
 class supercell(object):
     def __init__(self, cell, xyz=None, local = localisation()):
@@ -238,6 +276,7 @@ class supercell(object):
         r = ""
         r += "\n".join(list(map(lambda x: numericListFromDic(self.atomTEMPcount, x.getname(n)) + str(x), self.atoms)))
         return r
+    # todo вменяемый вывод без лишних символов, по порядку и все такое
 
     def __str__(self):
         r = ""

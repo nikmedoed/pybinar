@@ -1,6 +1,7 @@
 import os
 from localisation import localisation
 from math import sqrt
+import math
 import re
 
 class position (object):
@@ -12,6 +13,24 @@ class position (object):
         else:
             # self.loc = local.loc(__file__) # text for this file
             self.x, self.y, self.z = list(map(float, [x, y, z]))
+
+    def rotate(self, a, b=None):
+        if b:
+            cos = a
+            sin = b
+        else:
+            abc = map(lambda x: x * math.pi / 180, a)
+            cos = list(map(math.cos, abc))
+            sin = list(map(math.sin, abc))
+        a1, b1, c1 = cos
+        a2, b2, c2 = sin
+        x, y, z = self.x, self.y, self.z
+        self.x, self.y, self.z = [
+             c2 * (a1 * y + a2 * z) + c1 * (b1 * x - b2 * (-a2 * y + a1 * z)),
+             c1 * (a1 * y + a2 * z) - c2 * (b1 * x - b2 * (-a2 * y + a1 * z)),
+             b2 * x + b1 * (-a2 * y + a1 * z)
+        ]
+        return self
 
     def __add__(self, other):
         if type(other) is list:
