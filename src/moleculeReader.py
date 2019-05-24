@@ -1,8 +1,8 @@
 from atom import atom
 from cells import cell
-from localisation import localisation
-from graph2 import buildCell, buildCells
-from addons import *
+from src.localisation import localisation
+from graph2 import buildCells
+from src.addons import *
 
 def readMol(link):
     with open(link) as f:
@@ -22,7 +22,8 @@ if __name__ == "__main__":
     # mol.rotate([45, 0, 0])
     # print(mol)
     # buildCell(mol)
-    import rand
+    from src import rand
+
     ran = rand.rand("0", "TIME")
     mol.randRotate(ran)
     print(mol)

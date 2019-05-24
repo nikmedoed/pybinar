@@ -1,9 +1,8 @@
-import os
-from localisation import localisation
-from atom import atom, element
-from addons import *
+from src.localisation import localisation
+from atom import atom
+from src.addons import *
 from functools import reduce
-import rand
+from src import rand
 import math
 
 class cell(object):

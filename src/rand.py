@@ -1,7 +1,6 @@
-import os
-from localisation import localisation
+from src.localisation import localisation
 import random
-import position
+from src.types import position
 import time
 
 class rand(object):

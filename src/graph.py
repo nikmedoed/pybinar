@@ -1,5 +1,5 @@
 import random
-import localisation
+from src import localisation
 
 import os
 import matplotlib.pyplot as plt
@@ -16,7 +16,7 @@ def save(name,  fold = '', fmt='png'):
     if os.getcwd() != pwd:
         os.chdir(pwd)
 
-def plot(c,d, name = "" , fold = '', local = localisation.localisation()):
+def plot(c, d, name = "", fold = '', local = localisation.localisation()):
     loc = local.loc(__file__)
     index = np.arange(13)
     bar_width = 0.35

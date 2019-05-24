@@ -9,7 +9,7 @@ class localisation(object):
         self.error = "?"
         if loc == "":
             loc = delaultloc
-        f = open("Local/"+loc, "r", encoding="utf-8")
+        f = open("src/Local/"+loc, "r", encoding="utf-8")
         self.text = dict()
         now = ""
         # ToDo проверять список доступных локализаций и переключать на стандартную

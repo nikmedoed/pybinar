@@ -1,13 +1,9 @@
 import sys
-from localisation import localisation
+from src.localisation import localisation
 import os
 from readParametrs import inData
-from functools import reduce
-from time import strftime, gmtime, sleep
-import graph
-import pickle
 
-from addons import *
+from src.addons import *
 # class pybinar(object):
 #     def __init__(self, time, local = localisation()):
 

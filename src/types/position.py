@@ -1,8 +1,6 @@
-import os
-from localisation import localisation
 from math import sqrt
 import math
-import re
+
 
 class position (object):
     def __init__(self, x, y = None, z = None):

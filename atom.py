@@ -1,8 +1,7 @@
-import os
-from localisation import localisation
-from position import position
+from src.localisation import localisation
+from src.types.position import position
 import re
-import math
+
 
 def element(e):
     return re.sub(r'\d', '', e)

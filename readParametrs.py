@@ -1,14 +1,12 @@
-from localisation import localisation
-from rand import rand
+from src.localisation import localisation
+from src.rand import rand
 import os
-import json
 from math import factorial
 from functools import reduce
 from cells import cell, supercell
 from atom import element
-from copy import deepcopy
-from time import time
 from iterationResult import iterationResult
+from src.addons import *
 
 class printparam(object):
     """
