@@ -42,9 +42,10 @@ class cell(object):
                         self.filemain += i
                     else:
                         s = i.split()
-                        if not (s[0] in self.elements):
-                            self.elements.add(s[0])
-                            self.atomcountdict[s[0]] = 0
+                        if len(s>0): # проверить безопасность на примере кати 55к
+                            if not (s[0] in self.elements):
+                                self.elements.add(s[0])
+                                self.atomcountdict[s[0]] = 0
                         self.atomcountdict[s[0]] += 1
                         self.atoms.append(atom(s[0], s[1], s[2], s[3], local).setpow(s[4]))
             self.atomcount = list(self.atomcountdict.items())
@@ -238,6 +239,7 @@ class supercell(object):
         r = ""
         r += "\n".join(list(map(lambda x: numericListFromDic(self.atomTEMPcount, x.getname(n)) + str(x), self.atoms)))
         return r
+    # todo вменяемый вывод без лишних символов, по порядку и все такое
 
     def __str__(self):
         r = ""

@@ -65,7 +65,7 @@ class iterationResult(object):
                 pr("\n\n" + self.loc["SuperCell"] + "\n\n")
                 pr(deletecolors(data.supercell.printatomsRulesNumeric(i)))
 
-#todo supedcell печатать атомы с учетом правил
+#todo supedcell печатать атомы с учетом правил и по порядку
 #todo соседи интересных атомов
 
 
