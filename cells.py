@@ -95,10 +95,13 @@ class cell(object):
         r += "\n"+"\n".join(list(map(str, self.atoms)))
         return r
 
-    def printatomsNumeric(self):
+#Todo номера при молекулах должны быть общими, а не начинаться заново
+
+    def printatomsNumeric(self, trans=None):
         self.atomTEMPcount = dict.fromkeys(self.elements, 0)
         r = ""
-        r += "\n".join(list(map(lambda x: numericListFromDic(self.atomTEMPcount, x.name) + str(x), self.atoms)))
+        r += "\n".join(list(map(lambda x: numericListFromDic(self.atomTEMPcount, x.name) +
+                                          (str(x + trans)if trans else str(x)), self.atoms)))
         return r
 
     def __str__(self):
@@ -182,7 +185,7 @@ class supercell(object):
             self.atomsBYelements[s]=[]
 
     def addNeighbours(self, sprad, atomsForChange=None):
-        [x, y, z] = list(map(lambda x: x[0]*x[1],zip(self.xyz,self.cell.cell_abc)))
+        [x, y, z] = list(map(lambda x: x[0]*x[1], zip(self.xyz, self.cell.cell_abc)))
         corrections = []
         neiCount = -1
         for a in [-x, 0, x]:
@@ -276,7 +279,7 @@ class supercell(object):
         self.atomTEMPcount = dict.fromkeys(self.cell.elements, 0)
         r = ""
         r += "\n".join(list(map(lambda x:
-                                (molecules.molecules.get(x.getname(n)).printatomsNumeric() if '.mol' in x.getname(n)
+                                (molecules.molecules.get(x.getname(n)).printatomsNumeric(x.pos) if '.mol' in x.getname(n)
                                         else (numericListFromDic(self.atomTEMPcount, x.getname(n)) + str(x)))
                                  , self.atoms)))
         return r
