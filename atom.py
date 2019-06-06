@@ -1,7 +1,7 @@
-import os
-from localisation import localisation
-from position import position
+from src.localisation import localisation
+from src.types.position import position
 import re
+
 
 def element(e):
     return re.sub(r'\d', '', e)
@@ -29,13 +29,16 @@ class atom(object):
         self.element = element(self.name)
         self.pos = position(a)
         self.cell = cell
-        self.neighbours=[]
+        self.neighbours = []
         self.realpos = None
         pass
         # self.x, self.y, self.z = list(map(float, [x, y, z]))
 
     # todo индексы атомов
 
+    def rotate(self, a, b=None):
+        self.pos.rotate(a, b)
+        return self
 
     def getelement(self, i=-1):
         return element(self.getname(i))

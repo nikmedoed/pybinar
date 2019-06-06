@@ -1,13 +1,10 @@
 import sys
-from localisation import localisation
+from src.localisation import localisation
 import os
 from readParametrs import inData
-from functools import reduce
-from time import strftime, gmtime, sleep
-import graph
-import pickle
+import src.molecules  as molecules
 
-from addons import *
+from src.addons import *
 # class pybinar(object):
 #     def __init__(self, time, local = localisation()):
 
@@ -37,6 +34,7 @@ if __name__ == "__main__":
         outputfold = input.split(".")[0] + " - results"
 
     texts = localisation(lang) # object with all text
+    molecules.molecules = molecules.mol(texts)
     loc = texts.loc(__file__) # text for this file
 
     print(loc["ParamIn"] + ": \x1b[36m"+input+"\x1b[0m")

@@ -1,14 +1,13 @@
-from localisation import localisation
-from rand import rand
+from src.localisation import localisation
+from src.rand import rand
 import os
-import json
 from math import factorial
 from functools import reduce
 from cells import cell, supercell
 from atom import element
-from copy import deepcopy
-from time import time
 from iterationResult import iterationResult
+import src.molecules as molecules
+from src.addons import *
 
 class printparam(object):
     """
@@ -111,7 +110,11 @@ class inData(object):
         index = 0
         for k in conditions[3:]:
             i = k.replace(">", " ").replace("(", " ").replace(")", " ").split()
+            if '.mol' in i[1]:
+                molecules.molecules.readMol(i[1])
             i[2] = float(i[2])
+            if len(i) == 3:
+                i.insert(2, 0)
             i[3] = int(i[3])
             i.append(index)
             index += 1
@@ -151,6 +154,7 @@ class inData(object):
         print(self.loc['Prepared'])
 
     def theoretical(self):
+        """ рассчёт теоретической вероятности и теоретических параметров"""
         for i in self.atomsForChange:
             co = 0
             for g in self.supercell.atomsBYelements:

@@ -1,13 +1,19 @@
-import os
-from localisation import localisation
-from atom import atom, element
-from addons import *
+from src.localisation import localisation
+from atom import atom
+import src.molecules as molecules
+from src.addons import *
 from functools import reduce
-import rand
+from src import rand
 import math
 
 class cell(object):
-    def __init__(self, name, local = localisation()):
+    def __init__(self,
+                 name,
+                 local = localisation(),
+                 file="NoneFile",
+                 cell_abc=[1, 1, 1],
+                 cell_ang=[90, 90, 90]
+                 ):
         if type(name) is cell:
             self.loc = name.loc
             self.file = name.file
@@ -19,6 +25,25 @@ class cell(object):
             self.atomcountdict = name.atomcount
             self.atoms = dc(name.atoms)
             self.atomsBYelements = dc(name.atomsBYelements)
+        elif type(name) is list:
+            self.file = file
+            self.cell_abc = cell_abc
+            self.cell_ang = cell_ang
+            self.cell_cos = []
+            self.elements = set()
+            self.atoms = name
+            self.loc = local.loc(__file__)
+            self.filemain = ""
+            self.cell_cos = list(map(lambda x: math.cos(x*math.pi/180), self.cell_ang))
+            self.atomcountdict = dict()
+            for i in name:
+                if not (i.name in self.elements):
+                    self.elements.add(i.name)
+                    self.atomcountdict[i.name] = 0
+                self.atomcountdict[i.name] += 1
+            self.atomsBYelements = dict.fromkeys(self.elements)
+            for i in self.elements:
+                self.atomsBYelements[i] = list(filter(lambda x: x.name == i, self.atoms))
         else:
             self.loc = local.loc(__file__) # text for this file
             self.file = name
@@ -42,7 +67,7 @@ class cell(object):
                         self.filemain += i
                     else:
                         s = i.split()
-                        if len(s>0): # проверить безопасность на примере кати 55к
+                        if len(s) > 0: # проверить безопасность на примере кати 55к
                             if not (s[0] in self.elements):
                                 self.elements.add(s[0])
                                 self.atomcountdict[s[0]] = 0
@@ -70,10 +95,13 @@ class cell(object):
         r += "\n"+"\n".join(list(map(str, self.atoms)))
         return r
 
-    def printatomsNumeric(self):
+#Todo номера при молекулах должны быть общими, а не начинаться заново
+
+    def printatomsNumeric(self, trans=None):
         self.atomTEMPcount = dict.fromkeys(self.elements, 0)
         r = ""
-        r += "\n".join(list(map(lambda x: numericListFromDic(self.atomTEMPcount, x.name) + str(x), self.atoms)))
+        r += "\n".join(list(map(lambda x: numericListFromDic(self.atomTEMPcount, x.name) +
+                                          (str(x + trans)if trans else str(x)), self.atoms)))
         return r
 
     def __str__(self):
@@ -100,6 +128,18 @@ class cell(object):
             ]
         ))
         return r
+
+    def rotate(self, angles=[0, 0, 0]):
+        # Дано углы a,b,c
+        abc = list(map(lambda x: x*math.pi/180, angles))
+        cos = list(map(math.cos, abc))
+        sin = list(map(math.sin, abc))
+        for i in self.atoms:
+            i.rotate(cos, sin)
+        return self
+
+    def randRotate(self, rand):
+        self.rotate([rand.rnd(360), rand.rnd(360), rand.rnd(360)])
 
 class supercell(object):
     def __init__(self, cell, xyz=None, local = localisation()):
@@ -145,7 +185,7 @@ class supercell(object):
             self.atomsBYelements[s]=[]
 
     def addNeighbours(self, sprad, atomsForChange=None):
-        [x, y, z] = list(map(lambda x: x[0]*x[1],zip(self.xyz,self.cell.cell_abc)))
+        [x, y, z] = list(map(lambda x: x[0]*x[1], zip(self.xyz, self.cell.cell_abc)))
         corrections = []
         neiCount = -1
         for a in [-x, 0, x]:
@@ -233,11 +273,15 @@ class supercell(object):
         r += "\n".join(list(map(lambda x: numericListFromDic(self.atomTEMPcount, x.name) + str(x), self.atoms)))
         return r
 
+#todo выводить координаты с коррекцией т.е. как-то передавать в молекулу позицию
 
     def printatomsRulesNumeric(self, n=-1):
         self.atomTEMPcount = dict.fromkeys(self.cell.elements, 0)
         r = ""
-        r += "\n".join(list(map(lambda x: numericListFromDic(self.atomTEMPcount, x.getname(n)) + str(x), self.atoms)))
+        r += "\n".join(list(map(lambda x:
+                                (molecules.molecules.get(x.getname(n)).printatomsNumeric(x.pos) if '.mol' in x.getname(n)
+                                        else (numericListFromDic(self.atomTEMPcount, x.getname(n)) + str(x)))
+                                 , self.atoms)))
         return r
     # todo вменяемый вывод без лишних символов, по порядку и все такое
 
@@ -313,4 +357,3 @@ if __name__ == "__main__":
 
 
     print(sc)
-
