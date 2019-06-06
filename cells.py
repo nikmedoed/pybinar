@@ -1,5 +1,6 @@
 from src.localisation import localisation
 from atom import atom
+import src.molecules as molecules
 from src.addons import *
 from functools import reduce
 from src import rand
@@ -269,11 +270,15 @@ class supercell(object):
         r += "\n".join(list(map(lambda x: numericListFromDic(self.atomTEMPcount, x.name) + str(x), self.atoms)))
         return r
 
+#todo выводить координаты с коррекцией т.е. как-то передавать в молекулу позицию
 
     def printatomsRulesNumeric(self, n=-1):
         self.atomTEMPcount = dict.fromkeys(self.cell.elements, 0)
         r = ""
-        r += "\n".join(list(map(lambda x: numericListFromDic(self.atomTEMPcount, x.getname(n)) + str(x), self.atoms)))
+        r += "\n".join(list(map(lambda x:
+                                (molecules.molecules.get(x.getname(n)).printatomsNumeric() if '.mol' in x.getname(n)
+                                        else (numericListFromDic(self.atomTEMPcount, x.getname(n)) + str(x)))
+                                 , self.atoms)))
         return r
     # todo вменяемый вывод без лишних символов, по порядку и все такое
 

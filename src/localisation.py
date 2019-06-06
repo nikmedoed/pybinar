@@ -5,11 +5,11 @@ delaultloc = "ru"
 
 class localisation(object):
 
-    def __init__(self, loc = ""):
+    def __init__(self, loc = "", path = ""):
         self.error = "?"
         if loc == "":
             loc = delaultloc
-        f = open("src/Local/"+loc, "r", encoding="utf-8")
+        f = open(("src/Local/" if path == "" else path) + loc, "r", encoding="utf-8")
         self.text = dict()
         now = ""
         # ToDo проверять список доступных локализаций и переключать на стандартную
