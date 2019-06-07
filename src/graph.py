@@ -1,3 +1,6 @@
+# Copyright 2018 Nikita Muromtsev (nikmedoed)
+# Licensed under the Apache License, Version 2.0 (the «License»)
+
 import random
 from src import localisation
 

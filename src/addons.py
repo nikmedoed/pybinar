@@ -1,3 +1,6 @@
+# Copyright 2018 Nikita Muromtsev (nikmedoed)
+# Licensed under the Apache License, Version 2.0 (the «License»)
+
 from time import time, strftime, gmtime
 import re
 from copy import deepcopy as dc

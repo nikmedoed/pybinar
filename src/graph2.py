@@ -1,3 +1,6 @@
+# Copyright 2019 Nikita Muromtsev (nikmedoed)
+# Licensed under the Apache License, Version 2.0 (the «License»)
+
 from mpl_toolkits.mplot3d import Axes3D
 import matplotlib.pyplot as plt
 import numpy

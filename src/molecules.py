@@ -1,3 +1,6 @@
+# Copyright 2019 Nikita Muromtsev (nikmedoed)
+# Licensed under the Apache License, Version 2.0 (the «License»)
+
 import os
 from atom import atom
 import cells
