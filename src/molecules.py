@@ -1,12 +1,11 @@
 # Copyright 2019 Nikita Muromtsev (nikmedoed)
 # Licensed under the Apache License, Version 2.0 (the «License»)
 
-import os
-from atom import atom
-import cells
+from src.types.atom import atom
+from src.types import cell
 from src.localisation import localisation
-from src.graph2 import buildCells
-from src.addons import *
+from src.utils.graph2 import buildCells
+from src.utils.addons import *
 
 
 class mol(object):
@@ -24,7 +23,7 @@ class mol(object):
         n = int (text[3].split()[0])
         text = list(map(lambda x: x.split()[:4], text[4:4+n]))
         atoms = list(map(lambda x: atom(x[3], x[:3], self.local), text))
-        rescel = cells.cell(atoms, file=link)
+        rescel = cell.cell(atoms, file=link)
         self.list.append(rescel)
         self.trans[link] = len(self.list)
         self.trans[link.split('\\')[-1]] = len(self.list)-1

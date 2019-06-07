@@ -4,13 +4,12 @@
 import sys
 from src.localisation import localisation
 import os
-from readParametrs import inData
-import src.molecules  as molecules
+from src.parametrs import inData
+import src.molecules as molecules
 
-from src.addons import *
+from src.utils.addons import *
 # class pybinar(object):
 #     def __init__(self, time, local = localisation()):
-
 
 
 if __name__ == "__main__":
@@ -26,7 +25,7 @@ if __name__ == "__main__":
     lang = ""
     for param in sys.argv[1:3]:
         if param[0] == "#":
-            lang = param[1:]
+            lang = param[1]
         elif param[0] == "/":
             outputfold = param[1:]
             # todo возможность указания полной директории для результатов

@@ -2,20 +2,27 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="31c4af39-cd81-4b7c-8e79-a934363f96bd" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/types/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/types/cell.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/types/supercell.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/utils/parametrsPrint.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/atom.py" beforeDir="false" afterPath="$PROJECT_DIR$/atom.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cells.py" beforeDir="false" afterPath="$PROJECT_DIR$/cells.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/iterationResult.py" beforeDir="false" afterPath="$PROJECT_DIR$/iterationResult.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/atom.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/types/atom.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cells.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/iterationResult.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/iterationResult.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pybinar.py" beforeDir="false" afterPath="$PROJECT_DIR$/pybinar.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/readParametrs.py" beforeDir="false" afterPath="$PROJECT_DIR$/readParametrs.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/addons.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/addons.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/graph.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/graph.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/graph2.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/graph2.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/localisation.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/localisation.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/readParametrs.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/parametrs.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rfolder/00 - result.txt" beforeDir="false" afterPath="$PROJECT_DIR$/rfolder/00 - result.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rfolder/iteration - 00001/00 - iteration all rules.txt" beforeDir="false" afterPath="$PROJECT_DIR$/rfolder/iteration - 00001/00 - iteration all rules.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rfolder/iteration - 00001/01 - iteration rule 1.txt" beforeDir="false" afterPath="$PROJECT_DIR$/rfolder/iteration - 00001/01 - iteration rule 1.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rfolder/iteration - 00001/02 - iteration rule 2.txt" beforeDir="false" afterPath="$PROJECT_DIR$/rfolder/iteration - 00001/02 - iteration rule 2.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Local/ru" beforeDir="false" afterPath="$PROJECT_DIR$/src/Local/ru" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/addons.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/addons.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/graph.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/graph.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/graph2.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/graph2.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/molecules.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/molecules.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/rand.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/rand.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/types/position.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/types/position.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -27,18 +34,31 @@
     <session id="-1781547468">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
+          <entry key="project.closed" value="1" />
           <entry key="project.open.time.6" value="1" />
           <entry key="project.opened" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="py" value="87" />
+          <entry key="dummy" value="29" />
+          <entry key="py" value="142" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Python" value="87" />
+          <entry key="PLAIN_TEXT" value="29" />
+          <entry key="Python" value="142" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.open">
+        <counts>
+          <entry key="py" value="4" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.open">
+        <counts>
+          <entry key="Python" value="4" />
         </counts>
       </usages-collector>
     </session>
@@ -47,11 +67,11 @@
     <splitter split-orientation="horizontal" split-proportion="0.516202">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file pinned="false" current-in-tab="false">
+          <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/pybinar.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state>
-                  <caret selection-end-line="1" selection-end-column="64" />
+                <state relative-caret-position="255">
+                  <caret line="22" column="29" selection-start-line="22" selection-start-column="13" selection-end-line="22" selection-end-column="29" />
                   <folding>
                     <element signature="e#0#10#0" expanded="true" />
                   </folding>
@@ -60,10 +80,10 @@
             </entry>
           </file>
           <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/graph.py">
+            <entry file="file://$PROJECT_DIR$/src/utils/graph.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="17">
-                  <caret line="1" column="64" selection-start-line="1" selection-start-column="64" selection-end-line="1" selection-end-column="64" />
+                <state relative-caret-position="391">
+                  <caret line="23" column="9" selection-start-line="23" selection-start-column="4" selection-end-line="23" selection-end-column="9" />
                   <folding>
                     <element signature="e#0#13#0" expanded="true" />
                   </folding>
@@ -72,22 +92,48 @@
             </entry>
           </file>
           <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/graph2.py">
+            <entry file="file://$PROJECT_DIR$/src/utils/graph2.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="17">
-                  <caret line="1" column="64" selection-start-line="1" selection-start-column="64" selection-end-line="1" selection-end-column="64" />
+                <state relative-caret-position="68">
+                  <caret line="4" column="17" selection-start-line="4" selection-start-column="7" selection-end-line="4" selection-end-column="17" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/parametrs.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="476">
+                  <caret line="28" column="7" lean-forward="true" selection-start-line="28" selection-start-column="7" selection-end-line="28" selection-end-column="7" />
                   <folding>
-                    <element signature="e#0#39#0" expanded="true" />
+                    <element signature="e#112#159#0" expanded="true" />
                   </folding>
                 </state>
               </provider>
             </entry>
           </file>
           <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/readParametrs.py">
+            <entry file="file://$PROJECT_DIR$/src/__init__.py">
+              <provider selected="true" editor-type-id="text-editor" />
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/types/supercell.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="17">
-                  <caret line="1" column="64" selection-start-line="1" selection-start-column="64" selection-end-line="1" selection-end-column="64" />
+                <state relative-caret-position="442">
+                  <caret line="173" lean-forward="true" selection-start-line="172" selection-end-line="173" />
+                  <folding>
+                    <element signature="e#0#28#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/types/cell.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="88">
+                  <caret line="160" column="4" selection-start-line="160" selection-start-column="4" selection-end-line="160" selection-end-column="39" />
                   <folding>
                     <element signature="e#0#41#0" expanded="true" />
                   </folding>
@@ -96,22 +142,10 @@
             </entry>
           </file>
           <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/cells.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="17">
-                  <caret line="1" column="64" selection-start-line="1" selection-start-column="64" selection-end-line="1" selection-end-column="64" />
-                  <folding>
-                    <element signature="e#0#41#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/localisation.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="17">
-                  <caret line="1" column="64" selection-start-line="1" selection-start-column="64" selection-end-line="1" selection-end-column="64" />
+                <state relative-caret-position="136">
+                  <caret line="8" column="18" selection-start-line="8" selection-start-column="6" selection-end-line="8" selection-end-column="18" />
                 </state>
               </provider>
             </entry>
@@ -120,13 +154,13 @@
       </split-first>
       <split-second>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file pinned="false" current-in-tab="false">
+          <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/molecules.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state>
-                  <caret column="16" selection-start-column="16" selection-end-column="16" />
+                <state relative-caret-position="17">
+                  <caret line="16" column="21" lean-forward="true" selection-start-line="16" selection-start-column="21" selection-end-line="16" selection-end-column="21" />
                   <folding>
-                    <element signature="e#0#9#0" expanded="true" />
+                    <element signature="e#112#143#0" expanded="true" />
                   </folding>
                 </state>
               </provider>
@@ -145,13 +179,19 @@
             </entry>
           </file>
           <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/iterationResult.py">
+            <entry file="file://$PROJECT_DIR$/src/iterationResult.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="51">
-                  <caret line="3" selection-start-line="3" selection-end-line="3" />
-                  <folding>
-                    <element signature="e#0#41#0" expanded="true" />
-                  </folding>
+                <state relative-caret-position="-1136">
+                  <caret line="5" selection-start-line="5" selection-end-line="5" selection-end-column="30" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/utils/parametrsPrint.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="153">
+                  <caret line="9" column="23" selection-start-line="9" selection-start-column="20" selection-end-line="9" selection-end-column="23" />
                 </state>
               </provider>
             </entry>
@@ -169,19 +209,16 @@
             </entry>
           </file>
           <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/addons.py">
+            <entry file="file://$PROJECT_DIR$/src/utils/addons.py">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="51">
-                  <caret line="3" selection-start-line="3" selection-end-line="3" />
-                  <folding>
-                    <element signature="e#0#39#0" expanded="true" />
-                  </folding>
+                  <caret line="3" column="8" lean-forward="true" selection-start-line="3" selection-end-line="3" selection-end-column="21" />
                 </state>
               </provider>
             </entry>
           </file>
-          <file pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/atom.py">
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/types/atom.py">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="51">
                   <caret line="3" selection-start-line="3" selection-end-line="3" />
@@ -205,9 +242,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>loc</find>
-      <find>dist</find>
-      <find>local</find>
       <find>cell</find>
       <find>atomsBYelements</find>
       <find>inserAtoms</find>
@@ -216,7 +250,6 @@
       <find>atomcount</find>
       <find>refresh</find>
       <find>printatoms</find>
-      <find>time</find>
       <find>plt</find>
       <find>sns</find>
       <find>open</find>
@@ -235,6 +268,10 @@
       <find>numericListFromDic</find>
       <find>printatomsNumeric</find>
       <find>str</find>
+      <find>np</find>
+      <find>loc</find>
+      <find>supercell</find>
+      <find>time</find>
     </findStrings>
     <replaceStrings>
       <replace>atomTEMPcount</replace>
@@ -262,10 +299,8 @@
         <option value="$PROJECT_DIR$/src/cellRotation.py" />
         <option value="$PROJECT_DIR$/position.py" />
         <option value="$PROJECT_DIR$/src/moleculeReader.py" />
-        <option value="$PROJECT_DIR$/pybinar.py" />
         <option value="$PROJECT_DIR$/src/graph.py" />
         <option value="$PROJECT_DIR$/src/graph2.py" />
-        <option value="$PROJECT_DIR$/readParametrs.py" />
         <option value="$PROJECT_DIR$/cells.py" />
         <option value="$PROJECT_DIR$/src/localisation.py" />
         <option value="$PROJECT_DIR$/src/molecules.py" />
@@ -274,6 +309,12 @@
         <option value="$PROJECT_DIR$/src/types/position.py" />
         <option value="$PROJECT_DIR$/src/addons.py" />
         <option value="$PROJECT_DIR$/atom.py" />
+        <option value="$PROJECT_DIR$/readParametrs.py" />
+        <option value="$PROJECT_DIR$/parametrs.py" />
+        <option value="$PROJECT_DIR$/src/types/cells.py" />
+        <option value="$PROJECT_DIR$/src/types/supercell.py" />
+        <option value="$PROJECT_DIR$/src/parametrs.py" />
+        <option value="$PROJECT_DIR$/pybinar.py" />
       </list>
     </option>
   </component>
@@ -291,6 +332,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -321,11 +363,16 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="types" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="pybinar" type="b2602c69:ProjectViewProjectNode" />
+              <item name="pybinar" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="utils" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -337,9 +384,10 @@
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\NikitaAM\Documents\Projects\pybinar\src" />
+      <recent name="C:\Users\NikitaAM\Documents\Projects\pybinar\src\utils" />
+      <recent name="C:\Users\NikitaAM\Documents\Projects\pybinar\src\types" />
       <recent name="C:\Users\NikitaAM\Documents\Projects\pybinar" />
       <recent name="C:\Users\NikitaAM\Documents\Projects\pybinar\src\Docs" />
-      <recent name="C:\Users\NikitaAM\Documents\Projects\pybinar\src\types" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -446,7 +494,7 @@
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
-      <option name="SDK_HOME" value="C:\Users\sirne\venv\Scripts\python.exe" />
+      <option name="SDK_HOME" value="C:\Users\NikitaAM\AppData\Local\Continuum\anaconda3\python.exe" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
@@ -493,7 +541,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/readParametrs.py" />
+      <option name="SCRIPT_NAME" value="C:\Users\NikitaAM\Documents\Projects\pybinar\src\parametrs.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -543,16 +591,16 @@
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.69863015" weight="0.11673774" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.69863015" visible="true" weight="0.11673774" />
       <window_info id="Structure" order="1" sideWeight="0.30136988" side_tool="true" weight="0.11673774" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.22968581" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49946696" weight="0.22885032" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.36225596" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="Event Log" order="6" side_tool="true" weight="0.329718" />
+      <window_info anchor="bottom" id="Event Log" order="6" sideWeight="0.50053304" side_tool="true" visible="true" weight="0.22885032" />
       <window_info anchor="bottom" id="Python Console" order="7" weight="0.28308025" />
       <window_info anchor="bottom" id="Terminal" order="8" weight="0.3299532" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
@@ -593,37 +641,37 @@
           <option name="timeStamp" value="50" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/cells.py</url>
+          <url>file://$PROJECT_DIR$/src/types/cell.py</url>
           <line>340</line>
           <option name="timeStamp" value="52" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/readParametrs.py</url>
-          <line>93</line>
+          <url>file://$PROJECT_DIR$/src/parametrs.py</url>
+          <line>40</line>
           <option name="timeStamp" value="58" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/pybinar.py</url>
-          <line>141</line>
+          <line>140</line>
           <option name="timeStamp" value="104" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/src/graph2.py</url>
+          <url>file://$PROJECT_DIR$/src/utils/graph2.py</url>
           <line>33</line>
           <option name="timeStamp" value="119" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/cells.py</url>
+          <url>file://$PROJECT_DIR$/src/types/cell.py</url>
           <line>285</line>
           <option name="timeStamp" value="120" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/src/molecules.py</url>
-          <line>18</line>
+          <line>17</line>
           <option name="timeStamp" value="122" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/src/addons.py</url>
+          <url>file://$PROJECT_DIR$/src/utils/addons.py</url>
           <line>32</line>
           <option name="timeStamp" value="123" />
         </line-breakpoint>
@@ -752,69 +800,12 @@
     </entry>
     <entry file="file://$USER_HOME$/AppData/Local/Continuum/anaconda3/Lib/site-packages/matplotlib/figure.py" />
     <entry file="file://$PROJECT_DIR$/src/moleculeReader.py" />
-    <entry file="file://$PROJECT_DIR$/pybinar.py">
+    <entry file="file://$PROJECT_DIR$/src/types/atom.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret selection-end-line="1" selection-end-column="64" />
-          <folding>
-            <element signature="e#0#10#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/graph.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" column="64" selection-start-line="1" selection-start-column="64" selection-end-line="1" selection-end-column="64" />
-          <folding>
-            <element signature="e#0#13#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/graph2.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" column="64" selection-start-line="1" selection-start-column="64" selection-end-line="1" selection-end-column="64" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/readParametrs.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" column="64" selection-start-line="1" selection-start-column="64" selection-end-line="1" selection-end-column="64" />
+        <state relative-caret-position="51">
+          <caret line="3" selection-start-line="3" selection-end-line="3" />
           <folding>
             <element signature="e#0#41#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cells.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" column="64" selection-start-line="1" selection-start-column="64" selection-end-line="1" selection-end-column="64" />
-          <folding>
-            <element signature="e#0#41#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/localisation.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" column="64" selection-start-line="1" selection-start-column="64" selection-end-line="1" selection-end-column="64" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/molecules.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="16" selection-start-column="16" selection-end-column="16" />
-          <folding>
-            <element signature="e#0#9#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -829,12 +820,19 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/iterationResult.py">
+    <entry file="file://$PROJECT_DIR$/src/utils/graph2.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" selection-start-line="3" selection-end-line="3" />
+        <state relative-caret-position="68">
+          <caret line="4" column="17" selection-start-line="4" selection-start-column="7" selection-end-line="4" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/utils/graph.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="23" column="9" selection-start-line="23" selection-start-column="4" selection-end-line="23" selection-end-column="9" />
           <folding>
-            <element signature="e#0#41#0" expanded="true" />
+            <element signature="e#0#13#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -849,22 +847,83 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/addons.py">
+    <entry file="file://$PROJECT_DIR$/src/iterationResult.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1136">
+          <caret line="5" selection-start-line="5" selection-end-line="5" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/utils/parametrsPrint.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="23" selection-start-line="9" selection-start-column="20" selection-end-line="9" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/utils/addons.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="51">
-          <caret line="3" selection-start-line="3" selection-end-line="3" />
+          <caret line="3" column="8" lean-forward="true" selection-start-line="3" selection-end-line="3" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/molecules.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="16" column="21" lean-forward="true" selection-start-line="16" selection-start-column="21" selection-end-line="16" selection-end-column="21" />
           <folding>
-            <element signature="e#0#39#0" expanded="true" />
+            <element signature="e#112#143#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/atom.py">
+    <entry file="file://$PROJECT_DIR$/src/types/cell.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" selection-start-line="3" selection-end-line="3" />
+        <state relative-caret-position="88">
+          <caret line="160" column="4" selection-start-line="160" selection-start-column="4" selection-end-line="160" selection-end-column="39" />
           <folding>
             <element signature="e#0#41#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/types/supercell.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="442">
+          <caret line="173" lean-forward="true" selection-start-line="172" selection-end-line="173" />
+          <folding>
+            <element signature="e#0#28#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/__init__.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/parametrs.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="476">
+          <caret line="28" column="7" lean-forward="true" selection-start-line="28" selection-start-column="7" selection-end-line="28" selection-end-column="7" />
+          <folding>
+            <element signature="e#112#159#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/localisation.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="18" selection-start-line="8" selection-start-column="6" selection-end-line="8" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pybinar.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="22" column="29" selection-start-line="22" selection-start-column="13" selection-end-line="22" selection-end-column="29" />
+          <folding>
+            <element signature="e#0#10#0" expanded="true" />
           </folding>
         </state>
       </provider>

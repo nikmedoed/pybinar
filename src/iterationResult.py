@@ -3,7 +3,7 @@
 
 from src.localisation import localisation
 import os
-from src.addons import *
+from src.utils.addons import *
 
 def genFileName(name):
     try:
