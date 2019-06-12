@@ -14,11 +14,11 @@ You need next dependences (install it with *pip install*)
 
 ### How to use
 1. Prepare your Python 3.x interpreter, install all dependences (see links at the end of readme)
-2. You Need to prepare experiment files
--- Get *.cif* file
+2. Prepare experiment files
+-- Get correct *.cif* file
 -- Prepare .mol files if needed
--- Create your parametres file, use *exampleinput.txt* for help or this readme. Don't forget to set your *.cif* file there
-3. Run experiment with console by command below. You can create *.bat* or *.sh* file for regulary runnig. See examples in packadge folder.
+-- Create your parametres file (use *exampleinput.txt* or this readme). Don't forget to set your *.cif* file there
+3. Run experiment with console by command below. You can create *.bat* or *.sh* file for regulary runnig. See examples in packadge directory.
 ```
 python pybinar.py exampleinput.txt /resultfolder #
 ```
