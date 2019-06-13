@@ -15,9 +15,9 @@ You need next dependences (install it with *pip install*)
 ### How to use
 1. Prepare your Python 3.x interpreter, install all dependences (see links at the end of readme)
 2. Prepare experiment files
--- Get correct `.cif` file
--- Prepare `.mol` files if needed
--- Create your parametres file (use *exampleinput.txt* or this readme). Don't forget to set your *.cif* file there
+	- Get correct `.cif` file
+	- Prepare `.mol` files if needed
+	- Create your parametres file (use *exampleinput.txt* or this readme). Don't forget to set your *.cif* file there
 3. Run experiment with console by command below. You can create `.bat` or `.sh` file for regulary runnig. See examples in packadge directory.
 ```
 python pybinar.py exampleinput.txt /resultfolder #
@@ -48,8 +48,8 @@ NaCl.cif
 * `0` - code for random generator (0 - default, 1 and etc. - `in feature`)
 *  `_` - random paramentr / any  symbol combination or `TIME` for use actual time
 * `X > X1(p) 1`	- insertion rule (any numbers of lines). 
- - `interchangeable atom` `>` `insertable atom` `(insertable atom energy)` `number of implementations`
- - `X > Methylammonium.mol 1` - use for inserting molecules (see about `.mol` below)
+	- `interchangeable atom` `>` `insertable atom` `(insertable atom energy)` `number of implementations`
+	- `X > Methylammonium.mol 1` - use for inserting molecules (see about `.mol` below)
 
 ```
 Сonditions:
@@ -73,7 +73,7 @@ Na > Methylammonium.mol 10
 0.1
 ```
 ###### Output:
-* `10.0` - χ² ground in percents (%) for printing GULP results. TWO numbers (`10.0 15.6`) for your grouns or ONE for interval to 0 or 100 (depending on the direction χ²)
+* `10.0` - χ² ground in percents (%) for printing GULP results. TWO numbers (`10.0 15.6`) for your grounds or ONE for interval to 0 or 100 (depending on the direction χ²)
 * `1`  - n, чтобы выводить каждую n-ую попадающую в границы хи-квадрат модификацию. Оставьте пустым, чтобы не выводить. Для каждого вывода будет создан свой набор файлов.
 * `0` - печать координат атомов из входного файла
 * `0`  - печать координат всех размноженных атомов (0 - нет, 1 - да)
