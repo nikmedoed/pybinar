@@ -2,6 +2,16 @@
 
 **!!!!!**
 
+- [How to use](#howtouse)
+	- [Input files](#input)
+	- [Used file formats](#ff)
+- [Examples](#examples)
+- [Сomputational result](#result)
+- [Localisation](#localisation)
+- [Versioning](#versioning)
+- [Authors](#authors)
+- [Acknowledgments](#acknowledgments)
+
 ## Getting Started
 
 For use download the packadge. Use GitHub interface or console command:
@@ -13,6 +23,8 @@ You need next dependences (install it with *pip install*)
 - numpy
 
 ### How to use
+<a name="howtouse"></a>
+
 1. Prepare your Python 3.x interpreter, install all dependences (see links at the end of readme)
 2. Prepare experiment files
 	- Get correct `.cif` file
@@ -27,7 +39,7 @@ python pybinar.py exampleinput.txt /resultfolder #
 * With `/` your set result folder. Default **running folder**.
 * Else one parametr (without indicators) set the file with experint paramentrs. Default **example #1**.
 
-#### Input files
+#### Input files <a name="input"></a> 
 ##### Experiment parametres
 
 For inputing experiment parametrs use text file. Rules for input file:
@@ -107,6 +119,8 @@ Output:
 ```
 
 ##### Cell structure (.cif)
+<a name="ff"></a> 
+
 [Crystallographic Information File](https://en.wikipedia.org/wiki/Crystallographic_Information_File) generating by many programs for chemistry. You can generate this file using **XXXXX**. 
 Requirements for cell description:
 * Atom coordinates in P1
@@ -117,12 +131,18 @@ This is standart `.mol` file. [More details](http://bit.ly/2I2WEd0)
 
 
 ### Examples
+<a name="examples"></a> 
+
 **`coming soon`**
 
 ## Сomputational result
+<a name="result"></a> 
+
 **`coming soon`**
 
 ## Localisation
+
+
 For make your own localisation see `src/Local` directory. In `local.xlsx` file create a column with your localisation. Saving `.xlsx` will generate json files with localisation.
 Localistion will choose automaticaly as your computer locale, but if your want use custom locale, your should use special flag (`#`) when running programm. Example for `ru` locale:
 ```
@@ -130,7 +150,7 @@ python pybinar.py exampleinput.txt /resultfolder #ru
 ```
 
 ## Versioning
-
+<a name="localisation"></a> 
 
 * `2.2` - multiprocessing
 * **now** - fixing bugs, refactoring and some features
@@ -138,13 +158,14 @@ python pybinar.py exampleinput.txt /resultfolder #ru
 * `2.0` - Binar 2.0, single proces, only atoms, multi rules insertions
 * `1.0` - Old Fortran single rule solution
 
-## Authors
+## Authors <a name="authors"></a> 
 
 * [**Nikita Muromtsev**](https://vk.com/nikmedoed) - *development, project managing*
 * [**Ekaterina Marchenko**](https://vk.com/id37862033) - *testing, assistiveware, publications*
 * [**Nikolay Eremin**](https://vk.com/id32014242) - *idea, scientific guidance*
 
 ## Acknowledgments
+<a name="acknowledgments"></a> 
 
 * [ODSS (Ordered-Disordered-Solid-Solution)](http://cryst.geol.msu.ru/odss/)
 * [Binar 1.0](http://cryst.geol.msu.ru/odss/binar.pdf)
