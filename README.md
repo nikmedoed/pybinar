@@ -1,12 +1,13 @@
 # Binar 2.0: a supercell-generation with optimal atomic configuration in simulation of disordered solid solutions
 
-**!!!!!**
+The program allows to generate disordered configuration of solid solutions, as well as organic-inorganic compounds with molecules in the random orientation with an infinite size approximation. In order to run the program, it is necessary to create two files: the INPUT file containing the input information of calculation parameters (supercell size, atom insertion rules, the rules for χ² criterion, etc.) and the CIF file with structural information in space group P1. 
+After calculations, the program creates two files: the OUTPUT file containing the output information of the problem and the structural information data with the atomic coordinates of the best chosen configurations. The criterion for the degree of disordering of the configuration is represented by the squares of deviations of the numbers of pairs of dissimilar atoms in the second coordination sphere for the random configuration from the theoretical statistical histogram (the Pearson goodness-of-fit criterion). A set of random configurations is analyzed for the deviation from the ideal statistical histogram of the frequency of occurrence of dissimilar second neighbors for each composition (the χ² criterion). The ideal disordered configuration is determined by combinatorial methods with the correction for the relative concentration of each component. The program can be recommended for ab-initio calculations and simulation with semi-empirical methods.
 
 - [How to use](#howtouse)
-	- [Input files](#input)
+	- [* Input files](#input)
 	- [Used file formats](#ff)
-- [Examples](#examples)
-- [Сomputational result](#result)
+- [* Examples](#examples)
+- [* Сomputational result](#result)
 - [Localisation](#localisation)
 - [Versioning](#versioning)
 - [Authors](#authors)
@@ -18,12 +19,12 @@ For use download the packadge. Use GitHub interface or console command:
 ```
 git clone https://github.com/nikmedoed/pybinar
 ```
-You need next dependences (install it with *pip install*)
+You need next dependences (install with `pip install`)
 - matplotlib
 - numpy
 
-### How to use
 <a name="howtouse"></a>
+### How to use
 
 1. Prepare your Python 3.x interpreter, install all dependences (see links at the end of readme)
 2. Prepare experiment files
@@ -34,12 +35,13 @@ You need next dependences (install it with *pip install*)
 ```
 python pybinar.py exampleinput.txt /resultfolder #
 ```
-* Parametrs can be in different order. 
+* Parametrs can be in different order.
 * Flag `#` set the locale. If no, default `ru` (russian).
 * With `/` your set result folder. Default **running folder**.
 * Else one parametr (without indicators) set the file with experint paramentrs. Default **example #1**.
 
-#### Input files <a name="input"></a> 
+<a name="input"></a>
+#### Input files
 ##### Experiment parametres
 
 For inputing experiment parametrs use text file. Rules for input file:
@@ -85,58 +87,40 @@ Na > Methylammonium.mol 10
 0.1
 ```
 ###### Output:
-* `10.0` - χ² ground in percents (%) for printing GULP results. TWO numbers (`10.0 15.6`) for your grounds or ONE for interval to 0 or 100 (depending on the direction χ²)
-* `1`  - n, чтобы выводить каждую n-ую попадающую в границы хи-квадрат модификацию. Оставьте пустым, чтобы не выводить. Для каждого вывода будет создан свой набор файлов.
-* `0` - печать координат атомов из входного файла
-* `0`  - печать координат всех размноженных атомов (0 - нет, 1 - да)
-* `1`  - печать координат катионов, попавших в 2-ю координационную сферу катиона
-* `0` - печать координат катионов, попавших в 1-ю координационную сферу аниона
-* `0`  - печать анионов  ( в строчку), попавших в 1-ю координационную сферу основного катиона
-* `0`  - печать катионов ( в строчку), попавших в 1-ю координационную сферу аниона
-* `1` - печать минимальных значений хи-квадрат    
-* `1` - печать распределения вероятности          
-* `1` - печать координат конфигурации катионов    
-* `1`  - печать координат итоговой конфигурации    
-* `1`  - печать данных для GULP 
-* `1`  - график вероятностей для лучшего распределения и теоретического 
+* `10.0` - χ² ground in percents (%) for printing GULP results.
+	- TWO numbers (`10.0 15.6`) for your grounds 
+	- ONE for interval to 0 or 100% (depending on the direction χ²)
+* `1` - n, for printing every n-th iteration with χ² in grounds
+	- will create pack of files
+	- ` ` (nothing) for cancel printing
+* `0` or `1` - printin cell atoms coordinates in result file
+* `0` or `1` - printin sulercell atoms coordinates in result file
+* **`other` in progress**
 
 ```
 Output:
-10		// χ² ground in %	
+10		// χ² ground in %
 100		// counter for printing good interations
-0		// печать координат атомов из входного файла
-1 		// печать координат всех размноженных атомов (0 - нет, 1 - да)
-1		// печать координат катионов, попавших в 2-ю координационную сферу катиона
-1		// печать координат катионов, попавших в 1-ю координационную сферу аниона
-1		// печать анионов  (в строчку), попавших в 1-ю координационную сферу основного катиона
-1		// печать катионов (в строчку), попавших в 1-ю координационную сферу аниона
-1		// печать минимальных значений хи-квадрат    
-1		// печать распределения вероятности          
-1		// печать координат конфигурации катионов    
-1		// печать координат итоговой конфигурации    
-1		// печать данных для GULP        
-1		// график вероятностей для лучшего распределения и теоретического         
+0		// printing cell coordinates
+1 		// printing supercell coordinates
 ```
 
+<a name="ff"></a>
 ##### Cell structure (.cif)
-<a name="ff"></a> 
 
-[Crystallographic Information File](https://en.wikipedia.org/wiki/Crystallographic_Information_File) generating by many programs for chemistry. You can generate this file using **XXXXX**. 
-Requirements for cell description:
-* Atom coordinates in P1
-* Non-translational symmetry removed
+[Crystallographic Information File](https://en.wikipedia.org/wiki/Crystallographic_Information_File) generating by many programs for chemistry.
+Atom **coordinates in P1** are required.
 
 ##### Molecules (.mol)
 This is standart `.mol` file. [More details](http://bit.ly/2I2WEd0)
 
-
+<a name="examples"></a>
 ### Examples
-<a name="examples"></a> 
 
 **`coming soon`**
 
+<a name="result"></a>
 ## Сomputational result
-<a name="result"></a> 
 
 **`coming soon`**
 
@@ -149,8 +133,8 @@ Localistion will choose automaticaly as your computer locale, but if your want u
 python pybinar.py exampleinput.txt /resultfolder #ru
 ```
 
+<a name="localisation"></a>
 ## Versioning
-<a name="localisation"></a> 
 
 * `2.2` - multiprocessing
 * **now** - fixing bugs, refactoring and some features
@@ -158,14 +142,16 @@ python pybinar.py exampleinput.txt /resultfolder #ru
 * `2.0` - Binar 2.0, single proces, only atoms, multi rules insertions
 * `1.0` - Old Fortran single rule solution
 
-## Authors <a name="authors"></a> 
+<a name="authors"></a>
+## Authors
 
 * [**Nikita Muromtsev**](https://vk.com/nikmedoed) - *development, project managing*
-* [**Ekaterina Marchenko**](https://vk.com/id37862033) - *testing, assistiveware, publications*
 * [**Nikolay Eremin**](https://vk.com/id32014242) - *idea, scientific guidance*
+* [**Ekaterina Marchenko**](https://vk.com/id37862033) - *testing, assistiveware, publications*
 
+<a name="acknowledgments"></a>
 ## Acknowledgments
-<a name="acknowledgments"></a> 
+
 
 * [ODSS (Ordered-Disordered-Solid-Solution)](http://cryst.geol.msu.ru/odss/)
 * [Binar 1.0](http://cryst.geol.msu.ru/odss/binar.pdf)
