@@ -148,6 +148,10 @@ python pybinar.py exampleinput.txt /resultfolder #ru
 * [**Nikita Muromtsev**](https://vk.com/nikmedoed) - *development, project managing*
 * [**Nikolay Eremin**](https://vk.com/id32014242) - *idea, scientific guidance*
 * [**Ekaterina Marchenko**](https://vk.com/id37862033) - *testing, assistiveware, publications*
+* **Fateev Sergey** - *testing, assistiveware*
+* **Petrov Andrey** - *testing, assistiveware*
+* **Tarasov Alexey** - *scientific guidance*
+* **Goodilin Eugene** - *scientific guidance*
 
 <a name="acknowledgments"></a>
 ## Acknowledgments
