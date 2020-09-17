@@ -26,7 +26,7 @@ class mol(object):
         rescel = cell.cell(atoms, file=link)
         self.list.append(rescel)
         self.trans[link] = len(self.list)
-        self.trans[link.split('\\')[-1].replace(".mol", "")] = len(self.list)-1
+        self.trans[link.split('\\')[-1]] = len(self.list)-1
         return rescel
 
 molecules =  mol()

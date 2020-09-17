@@ -62,7 +62,7 @@ class inData(object):
             i = k.replace(">", " ").replace("(", " ").replace(")", " ").split()
             if '.mol' in i[1]:
                 molecules.molecules.readMol(i[1])
-                i[1]=i[1].replace(".mol", "")
+                i[1]=i[1]
             i[2] = float(i[2])
             if len(i) == 3:
                 i.insert(2, 0)
