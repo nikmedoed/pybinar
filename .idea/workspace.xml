@@ -2,49 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="31c4af39-cd81-4b7c-8e79-a934363f96bd" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/tests/NaCl.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/runCaTiO3_P1.bat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/runFe4Si4O12_P1.bat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/runNaCl.bat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/z_exampleinput.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/z_examplerun.bat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/pybinar.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/pybinar.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CaTiO3_P1.cif" beforeDir="false" afterPath="$PROJECT_DIR$/tests/CaTiO3_P1.cif" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CaTiO3_P1.txt" beforeDir="false" afterPath="$PROJECT_DIR$/tests/CaTiO3_P1.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Fe4Si4O12_P1.cif" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Fe4Si4O12_P1.cif" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Fe4Si4O12_P1small.cif" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Fe4Si4O12_P1small.cif" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Methylammonium.mol" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Methylammonium.mol" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NaCl.cif" beforeDir="false" afterPath="$PROJECT_DIR$/tests/NaCl.cif" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/exampleinput.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/exampleinput2.txt" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Fe4Si4O12_P1.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pybinar.py" beforeDir="false" afterPath="$PROJECT_DIR$/pybinar.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/rfolder/00 - result.txt" beforeDir="false" afterPath="$PROJECT_DIR$/rfolder/00 - result.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/rfolder/iteration - 00001/00 - iteration all rules.txt" beforeDir="false" afterPath="$PROJECT_DIR$/rfolder/iteration - 00001/00 - iteration all rules.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/rfolder/iteration - 00001/01 - iteration rule 1.txt" beforeDir="false" afterPath="$PROJECT_DIR$/rfolder/iteration - 00001/01 - iteration rule 1.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/rfolder/iteration - 00001/02 - iteration rule 2.txt" beforeDir="false" afterPath="$PROJECT_DIR$/rfolder/iteration - 00001/02 - iteration rule 2.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rfolderCa/00 - result.txt" beforeDir="false" afterPath="$PROJECT_DIR$/tests/rfolderCa/00 - result.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rfolderCa/iteration - 00001/00 - iteration all rules.txt" beforeDir="false" afterPath="$PROJECT_DIR$/tests/rfolderCa/iteration - 00001/00 - iteration all rules.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rfolderCa/iteration - 00001/01 - iteration rule 1.txt" beforeDir="false" afterPath="$PROJECT_DIR$/tests/rfolderCa/iteration - 00001/01 - iteration rule 1.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rfolderCa/iteration - 00001/02 - iteration rule 2.txt" beforeDir="false" afterPath="$PROJECT_DIR$/tests/rfolderCa/iteration - 00001/02 - iteration rule 2.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/run.bat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/runCa.bat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Local/ru" beforeDir="false" afterPath="$PROJECT_DIR$/src/Local/ru" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/__init__.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/iterationResult.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/iterationResult.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/localisation.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/localisation.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/molecules.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/types/molecules.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/parametrs.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/parametrs.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/rand.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/rand.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/types/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/types/atom.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/types/atom.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/types/cell.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/types/cell.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/types/position.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/types/position.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/types/supercell.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/types/supercell.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/addons.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/addons.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/utils/graph.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/graph.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/parametrsPrint.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/parametrsPrint.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -88,6 +52,48 @@
     </key>
   </component>
   <component name="RunManager" selected="Python.pybinar 2p">
+    <configuration name="graph" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="pybinar" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src/utils" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/utils/graph.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="graph2" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="pybinar" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src/utils" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/utils/graph2.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="localisation" type="PythonConfigurationType" factoryName="Python">
       <module name="pybinar" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -243,9 +249,13 @@
       <item itemvalue="Python.pybinar dir" />
       <item itemvalue="Python.readParametrs" />
       <item itemvalue="Python.molecules" />
+      <item itemvalue="Python.graph2" />
+      <item itemvalue="Python.graph" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.graph" />
+        <item itemvalue="Python.graph2" />
         <item itemvalue="Python.molecules" />
       </list>
     </recent_temporary>
@@ -290,25 +300,25 @@
     </state>
     <state x="-1501" y="306" key="FileChooserDialogImpl/0.0.1920.1050/1920.0.1920.1050/-2560.-141.2560.1410@-2560.-141.2560.1410" timestamp="1600284501607" />
     <state x="2714" y="333" key="FileChooserDialogImpl/0.0.1920.1050/1920.0.1920.1050/-2560.-141.2560.1410@1920.0.1920.1050" timestamp="1599505462423" />
-    <state width="1921" height="994" key="GridCell.Tab.0.bottom" timestamp="1600315391220">
+    <state width="1257" height="231" key="GridCell.Tab.0.bottom" timestamp="1600319294906">
       <screen x="-2560" y="-141" width="2560" height="1410" />
     </state>
-    <state width="1921" height="994" key="GridCell.Tab.0.bottom/0.0.1920.1050/1920.0.1920.1050/-2560.-141.2560.1410@-2560.-141.2560.1410" timestamp="1600315391220" />
+    <state width="1257" height="231" key="GridCell.Tab.0.bottom/0.0.1920.1050/1920.0.1920.1050/-2560.-141.2560.1410@-2560.-141.2560.1410" timestamp="1600319294906" />
     <state width="1877" height="702" key="GridCell.Tab.0.bottom/0.0.1920.1050/1920.0.1920.1050/-2560.-141.2560.1410@1920.0.1920.1050" timestamp="1599513437975" />
-    <state width="1921" height="994" key="GridCell.Tab.0.center" timestamp="1600315391220">
+    <state width="1257" height="231" key="GridCell.Tab.0.center" timestamp="1600319294906">
       <screen x="-2560" y="-141" width="2560" height="1410" />
     </state>
-    <state width="1921" height="994" key="GridCell.Tab.0.center/0.0.1920.1050/1920.0.1920.1050/-2560.-141.2560.1410@-2560.-141.2560.1410" timestamp="1600315391220" />
+    <state width="1257" height="231" key="GridCell.Tab.0.center/0.0.1920.1050/1920.0.1920.1050/-2560.-141.2560.1410@-2560.-141.2560.1410" timestamp="1600319294906" />
     <state width="1877" height="702" key="GridCell.Tab.0.center/0.0.1920.1050/1920.0.1920.1050/-2560.-141.2560.1410@1920.0.1920.1050" timestamp="1599513437974" />
-    <state width="1921" height="994" key="GridCell.Tab.0.left" timestamp="1600315391220">
+    <state width="1257" height="231" key="GridCell.Tab.0.left" timestamp="1600319294906">
       <screen x="-2560" y="-141" width="2560" height="1410" />
     </state>
-    <state width="1921" height="994" key="GridCell.Tab.0.left/0.0.1920.1050/1920.0.1920.1050/-2560.-141.2560.1410@-2560.-141.2560.1410" timestamp="1600315391220" />
+    <state width="1257" height="231" key="GridCell.Tab.0.left/0.0.1920.1050/1920.0.1920.1050/-2560.-141.2560.1410@-2560.-141.2560.1410" timestamp="1600319294906" />
     <state width="1877" height="702" key="GridCell.Tab.0.left/0.0.1920.1050/1920.0.1920.1050/-2560.-141.2560.1410@1920.0.1920.1050" timestamp="1599513437974" />
-    <state width="1921" height="994" key="GridCell.Tab.0.right" timestamp="1600315391220">
+    <state width="1257" height="231" key="GridCell.Tab.0.right" timestamp="1600319294906">
       <screen x="-2560" y="-141" width="2560" height="1410" />
     </state>
-    <state width="1921" height="994" key="GridCell.Tab.0.right/0.0.1920.1050/1920.0.1920.1050/-2560.-141.2560.1410@-2560.-141.2560.1410" timestamp="1600315391220" />
+    <state width="1257" height="231" key="GridCell.Tab.0.right/0.0.1920.1050/1920.0.1920.1050/-2560.-141.2560.1410@-2560.-141.2560.1410" timestamp="1600319294906" />
     <state width="1877" height="702" key="GridCell.Tab.0.right/0.0.1920.1050/1920.0.1920.1050/-2560.-141.2560.1410@1920.0.1920.1050" timestamp="1599513437974" />
     <state x="-1945" y="83" key="SettingsEditor" timestamp="1599148203980">
       <screen x="-2560" y="-141" width="2560" height="1410" />
@@ -349,6 +359,11 @@
           <url>file://$PROJECT_DIR$/src/types/atom.py</url>
           <line>3</line>
           <option name="timeStamp" value="131" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/src/iterationResult.py</url>
+          <line>58</line>
+          <option name="timeStamp" value="213" />
         </line-breakpoint>
       </breakpoints>
       <default-breakpoints>

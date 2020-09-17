@@ -4,6 +4,7 @@
 from src.localisation import localisation
 import os
 from src.utils.addons import *
+from src.utils.graph import *
 
 def genFileName(name):
     try:
@@ -24,7 +25,7 @@ class iterationResult(object):
     """
 
     def __init__(self, dist, XI2, Q, Qdiff, time):
-        self.loc = localisation.loc(__file__)  # text for this file
+        self.loc = localisation.loc(__file__) # text for this file
         self.dist = dist
         self.xi2 = XI2
         self.Q = Q
@@ -50,7 +51,12 @@ class iterationResult(object):
             else:
                 filename += 'rule {}'.format(i+1)
 
-            with open(outputfold+genFileName(filename), "w", encoding="utf-8") as out:
+            directory = outputfold+genFileName(filename)
+
+            plot(self.dist[i], data.theoreticalProbability[i])
+            save(directory.replace(".txt",""))
+
+            with open(directory, "w", encoding="utf-8") as out:
                 pr = out.write
                 pr("%+28s = % d\n" % (self.loc['IterationNum'], self.index))
                 pr("".join(list(map(lambda x: "%+28s = % .4f\n" % x, [
