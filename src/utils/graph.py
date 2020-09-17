@@ -19,8 +19,8 @@ def save(name,  fold = '', fmt='png'):
     if os.getcwd() != pwd:
         os.chdir(pwd)
 
-def plot(c, d, name = "", fold = '', local = localisation.localisation()):
-    loc = local.loc(__file__)
+def plot(c, d, name = "", fold = ''):
+    loc = localisation.localisation.loc(__file__)
     index = np.arange(13)
     bar_width = 0.35
     opacity = 0.8
@@ -50,11 +50,10 @@ def plot(c, d, name = "", fold = '', local = localisation.localisation()):
 
 
 if __name__ == "__main__":
-    local = localisation.localisation()
     d = dict.fromkeys(range(13))
     c = dict.fromkeys(range(13))
     for i in d:
         d[i] = random.random()
         c[i] = d[i] + random.random()*0.05-0.02
 
-    plot(c, d, fold="rfolder", local=local)
+    plot(c, d, fold="rfolder")

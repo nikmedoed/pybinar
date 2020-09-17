@@ -9,10 +9,10 @@ from src.utils.addons import *
 
 
 class mol(object):
-    def __init__(self, loc = localisation()):
+    def __init__(self):
         self.list = []
         self.trans = dict()
-        self.local = loc
+        self.loc = localisation.loc(__file__)
 
     def get(self, n):
         return self.list[n] if type(n) is int else self.list[self.trans[n]]
@@ -22,18 +22,18 @@ class mol(object):
             text = f.read().split('\n')
         n = int (text[3].split()[0])
         text = list(map(lambda x: x.split()[:4], text[4:4+n]))
-        atoms = list(map(lambda x: atom(x[3], x[:3], self.local), text))
+        atoms = list(map(lambda x: atom(x[3], x[:3]), text))
         rescel = cell.cell(atoms, file=link)
         self.list.append(rescel)
         self.trans[link] = len(self.list)
-        self.trans[link.split('\\')[-1]] = len(self.list)-1
+        self.trans[link.split('\\')[-1].replace(".mol", "")] = len(self.list)-1
         return rescel
 
-# molecules =  mol()
+molecules =  mol()
 
 if __name__ == "__main__":
-    molecules = mol(localisation("", "Local/"))
-    mol = molecules.readMol('..\Methylammonium.mol')
+    molecules = mol()
+    mol = molecules.readMol('..\\tests\Methylammonium.mol')
     new = dc(mol)
     print(mol)
     # buildCell(mol)

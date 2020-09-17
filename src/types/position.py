@@ -153,9 +153,10 @@ class position (object):
         # if type(other) is list:
         #     r = sqrt((self.x - other[0])**2 + (self.y - other[1])**2 + (self.z - other[2])**2)
         # else:
-        r = sum((self-other)**2)
+        point = self-other
+        r = sum(point**2)
         if ang:
-            r += 2*sum([self.y*self.x*ang[0], self.x*self.z*ang[1],  self.z*self.y*ang[2]])
+            r += 2*sum([point.y*point.x*ang[2], point.x*point.z*ang[1],  point.z*point.y*ang[0]])
         return sqrt(r)
 
     def __pow__(self, other):

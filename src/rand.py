@@ -7,8 +7,8 @@ from src.types import position
 import time
 
 class rand(object):
-    def __init__(self, generator, randomp, local = localisation()):
-        self.loc = local.loc(__file__) # text for this file
+    def __init__(self, generator, randomp):
+        self.loc = localisation.loc(__file__) # text for this file
         self.randomp = randomp
         if generator == '0':
             self.generator = "python standart"

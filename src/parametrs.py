@@ -11,7 +11,8 @@ from src.types.cell import cell
 from src.types.supercell import supercell
 from src.types.atom import element
 from src.iterationResult import iterationResult
-import src.molecules as molecules
+import src.types.molecules as molecules
+import pickle
 from time import time
 
 class inData(object):
@@ -29,9 +30,8 @@ class inData(object):
     """
     # todo накрутить сообщений об ошибках
 
-    def __init__(self, infile="", local=localisation()):
-        self.local = local
-        self.loc = local.loc(__file__) # text for this file
+    def __init__(self, infile=""):
+        self.loc = localisation.loc(__file__) # text for this file
         self.rawparam = {}
         self.time = 0
         block = ""
@@ -54,16 +54,15 @@ class inData(object):
                 else:
                     self.rawparam[block].append(i)
 
-        self.cell = cell(self.rawparam['Name'][0], local)
         conditions = self.rawparam['Сonditions']
-        self.supercell = supercell(self.cell, list(map(int, (conditions[0]).split())), local)
-        self.random = rand(conditions[1], conditions[2], local)
+        self.random = rand(conditions[1], conditions[2])
         self.insertionRules = []
         index = 0
         for k in conditions[3:]:
             i = k.replace(">", " ").replace("(", " ").replace(")", " ").split()
             if '.mol' in i[1]:
                 molecules.molecules.readMol(i[1])
+                i[1]=i[1].replace(".mol", "")
             i[2] = float(i[2])
             if len(i) == 3:
                 i.insert(2, 0)
@@ -93,20 +92,50 @@ class inData(object):
             self.x2fround_r = float(tmp[0])
 
         self.Ntoprint = int(outp[1])
-        self.pprint = printparam(outp[2:], local)
-        print(self.loc['Readed'])
-        self.tProb = {}
-        self.tQ = {}
-        self.proportions = {}
-        self.positionsToChange = 0
+        self.pprint = printparam(outp[2:])
+        self.atomsForChange = set(element(x[0]) for x in self.insertionRules) \
+            .union(element(x[1]) for x in self.insertionRules)
 
-        self.atomsForChange = set(element(x[0]) for x in self.insertionRules).union(element(x[1]) for x in self.insertionRules)
-        self.neigboards = self.supercell.addNeighbours(self.sphere1, self.atomsForChange) # количество соседей
+        superDimensions = list(map(int, (conditions[0]).split()))
+        chache = ".".join(infile.split(".")[:-1]) + ".pybinarchache"
+        self.cell = cell(self.rawparam['Name'][0])
+        print(self.loc['Readed'] + "\n")
+        readed = False
+        if os.path.exists(chache):
+            print(self.loc['SuperFind'], "-", chache)
+            try:
+                with open(chache, "rb") as s:
+                    cellTemp = pickle.load(s)
+                    self.supercell = pickle.load(s)
+                    self.supercell.cell = self.cell
+                if (superDimensions == self.supercell.xyz) and (cellTemp == self.cell):
+                    print(self.loc['SuperOk'], chache)
+                    readed = True
+            except Exception as err:
+                print(self.loc['SuperNo'], chache)
+                print("Information:", err)
+
+        if not readed:
+            self.supercell = supercell(self.cell, superDimensions)
+            self.supercell.addNeighbours(self.sphere1, self.atomsForChange)
+            with open(chache, "wb") as s:
+                pickle.dump(self.cell, s)
+                pickle.dump(self.supercell, s)
+
+        # количество соседей
         self.theoretical()
         print(self.loc['Prepared'])
 
     def theoretical(self):
         """ рассчёт теоретической вероятности и теоретических параметров"""
+
+        self.theoreticalProbability = {}
+        self.theoreticalQ = {}
+        self.theoreticalProbabilitySegments = {}
+        self.proportions = {}
+        self.positionsToChange = 0
+
+
         for i in self.atomsForChange:
             co = 0
             for g in self.supercell.atomsBYelements:
@@ -115,7 +144,6 @@ class inData(object):
             self.proportions[i] = co
             self.positionsToChange += co
 
-        prob = []
         pr = self.proportions.copy()
         for r in self.insertionRules:
             self.supercell.addAtomSort(r[1])  # добавляем сорта в словарь суперячейки
@@ -123,17 +151,35 @@ class inData(object):
             pr[element(r[1])] += r[3]
         for x in pr:
             pr[x] /= self.positionsToChange
-        self.tQ[-1] = 2 * reduce(lambda res, x: res * x, pr.values(), 1) / sum(pr.values()) ** 2
-        for i in range(0, self.neigboards + 1):
-            M = factorial(self.neigboards) / (factorial(i) * factorial(self.neigboards - i))
-            pro = list(map(lambda x: pr[x] ** (self.neigboards - i) * (1 - pr[x]) ** i * M * pr[x], pr))
-            prob.append(sum(pro))
-        self.tProb[-1] = prob
-        # todo все текстовые сравнения элементов перевести на индексы, а называния элементов в словарь
+        self.theoreticalQ[-1] = 2 * reduce(lambda res, x: res * x, pr.values(), 1) / sum(pr.values()) ** 2
+
+        # число соседей в какой-то степени логичнее считать для каждого вывода отдельно, т.к. в правиле
+        # участвует один элемент, а в общем выводе все элементы, что влияет на число соседей
+        # при отдельном подсчёте.
+        # Но я решил, что будет правильно считать число соседей среди всех атомов,
+        # участвующих во всех правилах замены, т.к. это будет в каждом отдельном правиле давать распределение
+        # с учётом атомов из всех правил (т.е. сравнимые друг с другом распределения),
+        # а если человек захочет получить распределение по атомам только одного
+        # правила, то пусть запустит эксперимент с одним правилом.
+        # Вопрос: насколько практически нужно получать результат при распределении атомов
+        # только участвующих в отдельном правиле, когда делаешь эксперимент с несколькими атомами.
+        # В общем для задачи главное сравнивать распределения с эталонные для одновременного применения замен
+        self.supercell.neighboursGeneralCountInit(self.atomsForChange)
+        prob = []
+        probabilitySegments = []
+        for i in range(0, self.supercell.neighboursCount + 1):
+            M = factorial(self.supercell.neighboursCount) / (factorial(i) * factorial(self.supercell.neighboursCount - i))
+            pro = dict(map(lambda x: (x, pr[x] ** (self.supercell.neighboursCount - i) * (1 - pr[x]) ** i * M * pr[x]), pr))
+            prob.append(sum(pro.values()))
+            probabilitySegments.append(pro)
+        self.theoreticalProbabilitySegments[-1] = probabilitySegments
+        self.theoreticalProbability[-1] = prob
+
         if len(self.insertionRules) > 1:
             for r in self.insertionRules:
                 rule = self.insertionRules.index(r)
                 prob = []
+                probabilitySegments = []
                 pr = {}  # специально смотрим только участников конкретного правила при подсчете всей вероятности (так было запрошено)
                 a = element(r[0])
                 b = element(r[1])
@@ -141,12 +187,14 @@ class inData(object):
                 pr[b] = self.proportions[b] + r[3]
                 for x in pr:
                     pr[x] /= self.positionsToChange
-                for i in range(0, self.neigboards + 1):
-                    M = factorial(self.neigboards) / (factorial(i) * factorial(self.neigboards - i))
-                    pro = list(map(lambda x: pr[x] ** (self.neigboards - i) * (1 - pr[x]) ** i * M * pr[x], pr))
-                    prob.append(sum(pro))  # todo возможно потребуется сохранять отдельные доли
-                self.tProb[rule] = prob
-                self.tQ[rule] = 2 * reduce(lambda res, x: res * x, pr.values(), 1) / sum(pr.values()) ** 2
+                for i in range(0, self.supercell.neighboursCount + 1):
+                    M = factorial(self.supercell.neighboursCount) / (factorial(i) * factorial(self.supercell.neighboursCount - i))
+                    pro = dict(map(lambda x: (x, pr[x] ** (self.supercell.neighboursCount - i) * (1 - pr[x]) ** i * M * pr[x]), pr))
+                    prob.append(sum(pro.values()))
+                    probabilitySegments.append(pro)
+                self.theoreticalProbabilitySegments[rule] = probabilitySegments
+                self.theoreticalProbability[rule] = prob
+                self.theoreticalQ[rule] = 2 * reduce(lambda res, x: res * x, pr.values(), 1) / sum(pr.values()) ** 2
 
     def reset(self):
         for ruleResult in self.insertionResult:
@@ -155,6 +203,8 @@ class inData(object):
 
     def iteration(self):
         start = time()
+
+        # todo все текстовые сравнения элементов перевести на индексы, а называния элементов в словарь
         self.insertionResult = []
         for i in self.insertionRules:
             self.insertionResult.append(self.supercell.insertAtoms(self.random, i))
@@ -164,12 +214,12 @@ class inData(object):
         iterXI2 = {}
         iterQdiff = {}
         for i in iterDistribution:
-            s = listDiff(iterDistribution[i], self.tProb[i])
+            s = listDiff(iterDistribution[i], self.theoreticalProbability[i])
             iterXI2[i] = sum(s)
-            iterQdiff[i] = iterQ[i] - self.tQ[i]
+            iterQdiff[i] = iterQ[i] - self.theoreticalQ[i]
         iterTime = time() - start
         self.time += iterTime
-        return iterationResult(iterDistribution, iterXI2, iterQ, iterQdiff, iterTime, self.local)
+        return iterationResult(iterDistribution, iterXI2, iterQ, iterQdiff, iterTime)
 
     def __repr__(self):
         return "inData class"
@@ -208,5 +258,5 @@ def listDiff(a,b):
     return s
 
 if __name__ == "__main__":
-    i = inData("exampleinput.txt", localisation())
+    i = inData("exampleinput.txt")
     print(i)

@@ -5,11 +5,22 @@ import sys
 from src.localisation import localisation
 import os
 from src.parametrs import inData
-import src.molecules as molecules
-
+from collections import defaultdict
 from src.utils.addons import *
 # class pybinar(object):
-#     def __init__(self, time, local = localisation()):
+#     def __init__(self, time):
+
+
+def checkRules(atomsCount, rules, errMes):
+    c = defaultdict(lambda: 0)
+    for i in rules:
+        c[i[0]]+=i[3]
+    for i in c:
+        if atomsCount[i] < c[i]:
+            print(errMes % (i, atomsCount[i]))
+            return False
+    return True
+
 
 
 if __name__ == "__main__":
@@ -20,13 +31,14 @@ if __name__ == "__main__":
         
     """
     # try:
-    input = "exampleinput.txt"
+    input = "z_exampleinput.txt"
     outputfold = ""
     lang = ""
     for param in sys.argv[1:3]:
         if param[0] == "#":
-            lang = param[1]
+            lang = param[1:]
         elif param[0] == "/":
+            # "\\" in param or "/" in param
             outputfold = param[1:]
             # todo возможность указания полной директории для результатов
         else:
@@ -35,32 +47,36 @@ if __name__ == "__main__":
     if outputfold == "":
         outputfold = input.split(".")[0] + " - results"
 
-    texts = localisation(lang) # object with all text
-    molecules.molecules = molecules.mol(texts)
-    loc = texts.loc(__file__) # text for this file
+    if not os.path.exists(outputfold):
+        os.mkdir(outputfold)
+
+    localisation.setLoc(lang) # object with all text
+    loc = localisation.loc(__file__) # text for this file
 
     print(loc["ParamIn"] + ": \x1b[36m"+input+"\x1b[0m")
     print(loc["ResOut"] + ": \x1b[36m"+outputfold+"\x1b[0m")
     print()
 
-    if not os.path.exists(outputfold):
-        os.mkdir(outputfold)
-
+    # ======== read and prepare Data
+    data = inData(input)
+    os.chdir(outputfold)
+    data.random.settime()
     outputfile = "00 - result.txt"
 
-    data = inData(input, texts)
+    # ======== Iterations
 
     start = time()
-    data.random.settime(start)
+
     # while data.time<data.timeLimit:
     #     data.iteration()
-    res = data.iteration()
-    res.makefiles(data, outputfold + '/iteration - {:0>5}'.format(1))
-    data.reset()
 
+    if checkRules(data.supercell.atomcountdict, data.insertionRules, loc["RuleSizeError"]):
+        res = data.iteration()
+        res.makefiles(data, 'iteration - {:0>5}'.format(1))
+        data.reset()
     # sleep(2)
 
-    # todo вывод данных инитерации, втом числе в файлы галп, циф, диаграмма
+    # todo вывод данных итерации, в том числе в файлы галп, циф, диаграмма
 
     # todo цикл с ограничением по времени и срабатыванию на улучшения
 
@@ -75,9 +91,9 @@ if __name__ == "__main__":
 
     end = time()
 
-    # graph.plot(c, d, name="как", fold="rfolder", local=local) как будет чем, дописать
+    # graph.plot(c, d, name="как", fold="rfolder") как будет чем, дописать
 
-    os.chdir(outputfold)
+
     with open(outputfile, "w", encoding="utf-8") as out:
         pr = out.write
         pr("\n".join(
@@ -138,7 +154,7 @@ if __name__ == "__main__":
         pr("%s:\t%s\n" % (loc["GeneratorP"], data.random.randomp))
         pr("\n")
         pr("%s:\n" % (loc["Rules"]))
-        pr("%s\n" % "\n".join(list(map(lambda x: " %+2d:" % (x[4]+1) + " %6s > %-6s(q = %.2f) %d" % tuple(x[:4]), data.insertionRules))))
+        pr("%s\n" % "\n".join(list(map(lambda x: " +%2d: %6s > %-6s(q = %.2f) %d" % tuple([x[4]+1, *x[:4]]), data.insertionRules))))
         pr("\n")
         pr("%15s - %s\n" % (data.sphere1, loc["Sphere1"]))
         # pr("%15s - %s\n" % (data.sphere2, loc["Sphere2"]))

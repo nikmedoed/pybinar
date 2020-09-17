@@ -5,6 +5,21 @@ from time import time, strftime, gmtime
 import re
 from copy import deepcopy as dc
 
+def getQ(distrib, pairs):
+    return sum(list(map(lambda x: x*distrib.index(x), distrib))) / pairs
+
+def getDistrib(nc, interestedAtoms, it =- 1):
+    distrib = [0] * nc
+    for iAtom in interestedAtoms:
+        count = 0
+        iAtomelem = iAtom.getelement(it)
+        for i in iAtom.interestedNeighbours:
+            if i.getelement(it) != iAtomelem:
+                count += 1
+        distrib[count] += 1
+    size = len(interestedAtoms) + 1
+    return list(map(lambda x: x/size, distrib))
+
 def coolTime(s):
     r = ""
     h = s//3600

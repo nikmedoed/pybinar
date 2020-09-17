@@ -10,7 +10,6 @@ import math
 class cell(object):
     def __init__(self,
                  name,
-                 local = localisation(),
                  file="NoneFile",
                  cell_abc=[1, 1, 1],
                  cell_ang=[90, 90, 90]
@@ -18,12 +17,13 @@ class cell(object):
         if type(name) is cell:
             self.loc = name.loc
             self.file = name.file
-            self.filemain = name.filemain
+            # self.filemain = name.filemain
             self.cell_abc = name.cell_abc # ab gamma, ac betta, cb alpha
             self.cell_ang = name.cell_ang
             self.cell_cos = list(map(lambda x: math.cos(x*math.pi/180), self.cell_ang))
             self.elements = dc(name.elements)
-            self.atomcountdict = name.atomcount
+            self.atomcountdict = name.atomcountdict
+            self.atomcount = name.atomcount
             self.atoms = dc(name.atoms)
             self.atomsBYelements = dc(name.atomsBYelements)
         elif type(name) is list:
@@ -33,8 +33,8 @@ class cell(object):
             self.cell_cos = []
             self.elements = set()
             self.atoms = name
-            self.loc = local.loc(__file__)
-            self.filemain = ""
+            self.loc = localisation.loc(__file__)
+            # self.filemain = ""
             self.cell_cos = list(map(lambda x: math.cos(x*math.pi/180), self.cell_ang))
             self.atomcountdict = dict()
             for i in name:
@@ -46,12 +46,11 @@ class cell(object):
             for i in self.elements:
                 self.atomsBYelements[i] = list(filter(lambda x: x.name == i, self.atoms))
         else:
-            self.loc = local.loc(__file__) # text for this file
+            self.loc = localisation.loc(__file__) # text for this file
             self.file = name
-            self.filemain = ""
+            # self.filemain = ""
             self.cell_abc = []
             self.cell_ang = []
-            self.cell_cos = []
             self.atoms = []
             main = True
             self.elements = set()
@@ -63,17 +62,19 @@ class cell(object):
                     if "_cell_angle" in i:
                         self.cell_ang.append(float(i.split()[1]))
                     if main:
-                        if len(i.split()) > 3 : main = False
-                    if main:
-                        self.filemain += i
-                    else:
+                        if len(i.split()) > 3:
+                            main = False
+                    # if main:
+                    #     self.filemain += i
+                    if not main:
                         s = i.split()
                         if len(s) > 0: # проверить безопасность на примере кати 55к
                             if not (s[0] in self.elements):
                                 self.elements.add(s[0])
                                 self.atomcountdict[s[0]] = 0
                         self.atomcountdict[s[0]] += 1
-                        self.atoms.append(atom(s[0], s[1], s[2], s[3], local).setpow(s[4]))
+                        self.atoms.append(atom(s[0], s[1], s[2], s[3]).setpow(s[4]))
+            self.cell_cos = list(map(lambda x: math.cos(x * math.pi / 180), self.cell_ang))
             self.atomcount = list(self.atomcountdict.items())
             self.atomcount.sort(key=lambda x: x[0])
             self.atoms.sort(key=lambda x: x.name)
@@ -104,6 +105,15 @@ class cell(object):
         r += "\n".join(list(map(lambda x: numericListFromDic(self.atomTEMPcount, x.name) +
                                           (str(x + trans)if trans else str(x)), self.atoms)))
         return r
+
+    def __eq__(self, name):
+        return all([
+            self.cell_abc == name.cell_abc,
+            self.cell_ang == name.cell_ang,
+            self.atomcountdict == name.atomcountdict,
+            self.atoms == name.atoms
+        ])
+
 
     def __str__(self):
         # l = lambda a, b: str(a) + ":\t" + str(b)
@@ -142,23 +152,8 @@ class cell(object):
     def randRotate(self, rand):
         self.rotate([rand.rnd(360), rand.rnd(360), rand.rnd(360)])
 
-
-def getQ(distrib, pairs):
-    return sum(list(map(lambda x: x*distrib.index(x), distrib))) / pairs
-
-def getDidtrib(nc, interestedAtoms, it =- 1):
-    distrib = [0] * nc
-    for iAtom in interestedAtoms:
-        count = 0
-        for i in iAtom.neighbours:
-            if i.getelement(it) != iAtom.getelement(it):
-                count += 1
-        distrib[count] += 1
-    return list(map(lambda x: x/(len(interestedAtoms)+1), distrib))
-
 if __name__ == "__main__":
-    local = localisation()
-    c = cell("Fe4Si4O12_P1.cif", local)
+    c = cell("Fe4Si4O12_P1.cif")
 
     # d.file = "dfdfdf"
     # print(c.file)
@@ -168,7 +163,7 @@ if __name__ == "__main__":
     # print(s.printatomsNumeric())
     sc = dc(s)
     r = ['Fe1', 'Sas', 1.5, 10]
-    ran = rand.rand("0", "TIME", local)
+    ran = rand.rand("0", "TIME")
     z = sc.inserAtoms(ran, r)
     ran.settime()
     sc.refresh()

@@ -6,8 +6,8 @@ class printparam(object):
     Class for printing parametrs from input file
     At initialisation gets 'param' - list of text data ("0" or "1") and translate it to boolean
     """
-    def __init__(self, param, local=localisation()):
-        loc = local.loc(__file__)  # text for this file
+    def __init__(self, param):
+        loc = localisation.loc(__file__)  # text for this file
         [self.input,
          self.replication,
          self.cations_2sphere_cat,
@@ -24,7 +24,7 @@ class printparam(object):
 
     def __str__(self):
         t = "\n".join(
-        map(lambda a,b: "\x1b[36m" + a + ":\x1b[0m\t" + str(b),
+        map(lambda a, b: "\x1b[36m" + a + ":\x1b[0m\t" + str(b),
             ["input cell coordinates",
              "replication",
             "cations_2sphere_cat",

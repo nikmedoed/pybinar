@@ -4,26 +4,21 @@
 from src.localisation import localisation
 from src.types.position import position
 import re
-
+from collections import defaultdict
 
 def element(e):
     return re.sub(r'\d', '', e)
 
 class atom(object):
-    def __init__(self, name, x, y = None, z = None, cell = 0, local = localisation()):
+    def __init__(self, name, x, y = None, z = None, cell = 0):
         if z:
             a = [x, y, z]
         else:
-            if y: local = y
-            if x:
-                if type(x) == localisation:
-                    local = x
-                    a = [0] * 3
-                else:
-                    a = x
+            if y: cell = y
+            if x: a = x
             else:
                 a = [0] * 3
-        self.loc = local.loc(__file__)  # text for this file
+        self.loc = localisation.loc(__file__)  # text for this file
         self.name = name
         self.initname = name
         self.pow = 0
@@ -32,12 +27,22 @@ class atom(object):
         self.element = element(self.name)
         self.pos = position(a)
         self.cell = cell
-        self.neighbours = []
+        self.neighbours = defaultdict(list)
         self.realpos = None
+        self.index = -1
         pass
         # self.x, self.y, self.z = list(map(float, [x, y, z]))
 
     # todo индексы атомов
+
+    def setNeighbour(self, atom):
+        self.neighbours[atom.name].append(atom.index)
+        #
+        # n = atom.name
+        # if n in self.neighbours:
+        #     self.neighbours[n].append(atom.index)
+        # else:
+        #     self.neighbours[n]=[atom.index]
 
     def rotate(self, a, b=None):
         self.pos.rotate(a, b)
@@ -62,6 +67,10 @@ class atom(object):
             return self.pow
         else:
             return self.initpow
+
+    def setIndex(self,i):
+        self.index = i
+        return self
 
     def setRealPos(self, abc):
         self.realpos = self.pos * abc
@@ -149,7 +158,8 @@ class atom(object):
         return self.pos.dist(other, ang)
 
     def rdist(self, other, ang=None):
-        if type(other) is atom: other = other.realpos
+        if type(other) is atom:
+            other = other.realpos
         return self.realpos.dist(other, ang)
 
     def __abs__(self):
