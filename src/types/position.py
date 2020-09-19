@@ -148,6 +148,7 @@ class position (object):
             self.z %= other.z
         return self
 
+# todo преобразование координат для вывода
     def getDecartPos(self, ang):
         if not self.dec:
             self.dec = position(1, 1, 1)

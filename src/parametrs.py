@@ -81,7 +81,6 @@ class inData(object):
         self.x2toLess = "0" == const[k]
         k+=1
         self.x2stop = float(const[k])
-        self.x2stop = float(const[k])
 
         outp = self.rawparam["Output"]
         tmp = outp[0].split()

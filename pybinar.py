@@ -7,6 +7,8 @@ import os
 from src.parametrs import inData
 from collections import defaultdict
 from src.utils.addons import *
+from tqdm import tqdm
+
 # class pybinar(object):
 #     def __init__(self, time):
 
@@ -70,11 +72,31 @@ if __name__ == "__main__":
     # while data.time<data.timeLimit:
     #     data.iteration()
 
+
     if checkRules(data.supercell.atomcountdict, data.insertionRules, loc["RuleSizeError"]):
-        res = data.iteration()
-        res.makefiles(data, 'iteration - {:0>5}'.format(1))
-        data.reset()
-    # sleep(2)
+        x2stop = False
+        iteration = 0
+        timeProgress = tqdm(total=data.timeLimit, bar_format="{l_bar} {bar} | {n_fmt:.4}/{total_fmt}s [{rate_fmt}{postfix}] {elapsed}")
+        #                     postfix=["Batch", dict(value=0)])
+
+        while data.time < data.timeLimit and not x2stop:
+            iteration += 1
+            res = data.iteration()
+            if iteration % data.Ntoprint == 0:
+                res.makefiles(data, 'iteration - {:0>5}'.format(iteration))
+            data.reset()
+            x2stop = res.xi2[-1] <= data.x2stop if data.x2toLess else res.xi2[-1] >= data.x2stop
+            if data.time > data.timeLimit:
+                timeProgress.close()
+            else:
+                timeProgress.update(res.time)
+
+        timeProgress.close()
+        if x2stop:
+            print(loc["StopByXi"], res.xi2[-1])
+            res.makefiles(data, 'iteration - {:0>5}'.format(iteration))
+        else:
+            print(loc["StopByTime"], coolTime(data.time))
 
     # todo вывод данных итерации, в том числе в файлы галп, циф, диаграмма
 

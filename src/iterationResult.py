@@ -33,17 +33,13 @@ class iterationResult(object):
         self.time = time
         self.index = getIndex()
 
-
-    def setloc(self, loc):
-        self.loc = localisation.loc(__file__)
-
     def __repr__(self):
         return "iteration result class"
 
     def makefiles(self, data, outputfold):
         if not os.path.exists(outputfold):
             os.mkdir(outputfold)
-        print(self.loc['printIteration'], self.index)
+        # print(self.loc['printIteration'], self.index)
         for i in self.dist:
             filename = 'iteration '
             if i == -1:
@@ -51,7 +47,7 @@ class iterationResult(object):
             else:
                 filename += 'rule {}'.format(i+1)
 
-            directory = outputfold+genFileName(filename)
+            directory = outputfold + genFileName(filename)
 
             plot(self.dist[i], data.theoreticalProbability[i])
             save(directory.replace(".txt",""))
