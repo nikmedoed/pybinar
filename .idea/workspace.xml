@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="31c4af39-cd81-4b7c-8e79-a934363f96bd" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/rfolder/00 - result.txt" beforeDir="false" afterPath="$PROJECT_DIR$/rfolder/00 - result.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/rfolder/iteration - 00001/00 - iteration all rules.png" beforeDir="false" afterPath="$PROJECT_DIR$/rfolder/iteration - 00001/00 - iteration all rules.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/rfolder/iteration - 00001/00 - iteration all rules.txt" beforeDir="false" afterPath="$PROJECT_DIR$/rfolder/iteration - 00001/00 - iteration all rules.txt" afterDir="false" />
@@ -10,15 +9,7 @@
       <change beforePath="$PROJECT_DIR$/rfolder/iteration - 00001/01 - iteration rule 1.txt" beforeDir="false" afterPath="$PROJECT_DIR$/rfolder/iteration - 00001/01 - iteration rule 1.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/rfolder/iteration - 00001/02 - iteration rule 2.png" beforeDir="false" afterPath="$PROJECT_DIR$/rfolder/iteration - 00001/02 - iteration rule 2.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/rfolder/iteration - 00001/02 - iteration rule 2.txt" beforeDir="false" afterPath="$PROJECT_DIR$/rfolder/iteration - 00001/02 - iteration rule 2.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/iterationResult.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/iterationResult.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/types/atom.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/types/atom.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/types/cell.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/types/cell.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/types/position.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/types/position.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/types/supercell.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/types/supercell.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/addons.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/addons.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/graph2.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/graph2.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/z_exampleinput.pybinarchache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/z_exampleinput.txt" beforeDir="false" afterPath="$PROJECT_DIR$/z_exampleinput.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -310,25 +301,25 @@
     </state>
     <state x="-1501" y="306" key="FileChooserDialogImpl/0.0.1920.1050/1920.0.1920.1050/-2560.-141.2560.1410@-2560.-141.2560.1410" timestamp="1600284501607" />
     <state x="2714" y="333" key="FileChooserDialogImpl/0.0.1920.1050/1920.0.1920.1050/-2560.-141.2560.1410@1920.0.1920.1050" timestamp="1599505462423" />
-    <state width="1921" height="994" key="GridCell.Tab.0.bottom" timestamp="1600474081407">
+    <state width="2517" height="231" key="GridCell.Tab.0.bottom" timestamp="1600476437030">
       <screen x="-2560" y="-141" width="2560" height="1410" />
     </state>
-    <state width="1921" height="994" key="GridCell.Tab.0.bottom/0.0.1920.1050/1920.0.1920.1050/-2560.-141.2560.1410@-2560.-141.2560.1410" timestamp="1600474081407" />
+    <state width="2517" height="231" key="GridCell.Tab.0.bottom/0.0.1920.1050/1920.0.1920.1050/-2560.-141.2560.1410@-2560.-141.2560.1410" timestamp="1600476437030" />
     <state width="1877" height="702" key="GridCell.Tab.0.bottom/0.0.1920.1050/1920.0.1920.1050/-2560.-141.2560.1410@1920.0.1920.1050" timestamp="1599513437975" />
-    <state width="1921" height="994" key="GridCell.Tab.0.center" timestamp="1600474081406">
+    <state width="2517" height="231" key="GridCell.Tab.0.center" timestamp="1600476437030">
       <screen x="-2560" y="-141" width="2560" height="1410" />
     </state>
-    <state width="1921" height="994" key="GridCell.Tab.0.center/0.0.1920.1050/1920.0.1920.1050/-2560.-141.2560.1410@-2560.-141.2560.1410" timestamp="1600474081406" />
+    <state width="2517" height="231" key="GridCell.Tab.0.center/0.0.1920.1050/1920.0.1920.1050/-2560.-141.2560.1410@-2560.-141.2560.1410" timestamp="1600476437030" />
     <state width="1877" height="702" key="GridCell.Tab.0.center/0.0.1920.1050/1920.0.1920.1050/-2560.-141.2560.1410@1920.0.1920.1050" timestamp="1599513437974" />
-    <state width="1921" height="994" key="GridCell.Tab.0.left" timestamp="1600474081406">
+    <state width="2517" height="231" key="GridCell.Tab.0.left" timestamp="1600476437030">
       <screen x="-2560" y="-141" width="2560" height="1410" />
     </state>
-    <state width="1921" height="994" key="GridCell.Tab.0.left/0.0.1920.1050/1920.0.1920.1050/-2560.-141.2560.1410@-2560.-141.2560.1410" timestamp="1600474081406" />
+    <state width="2517" height="231" key="GridCell.Tab.0.left/0.0.1920.1050/1920.0.1920.1050/-2560.-141.2560.1410@-2560.-141.2560.1410" timestamp="1600476437030" />
     <state width="1877" height="702" key="GridCell.Tab.0.left/0.0.1920.1050/1920.0.1920.1050/-2560.-141.2560.1410@1920.0.1920.1050" timestamp="1599513437974" />
-    <state width="1921" height="994" key="GridCell.Tab.0.right" timestamp="1600474081407">
+    <state width="2517" height="231" key="GridCell.Tab.0.right" timestamp="1600476437030">
       <screen x="-2560" y="-141" width="2560" height="1410" />
     </state>
-    <state width="1921" height="994" key="GridCell.Tab.0.right/0.0.1920.1050/1920.0.1920.1050/-2560.-141.2560.1410@-2560.-141.2560.1410" timestamp="1600474081407" />
+    <state width="2517" height="231" key="GridCell.Tab.0.right/0.0.1920.1050/1920.0.1920.1050/-2560.-141.2560.1410@-2560.-141.2560.1410" timestamp="1600476437030" />
     <state width="1877" height="702" key="GridCell.Tab.0.right/0.0.1920.1050/1920.0.1920.1050/-2560.-141.2560.1410@1920.0.1920.1050" timestamp="1599513437974" />
     <state x="-1945" y="83" key="SettingsEditor" timestamp="1599148203980">
       <screen x="-2560" y="-141" width="2560" height="1410" />
@@ -372,7 +363,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/src/types/supercell.py</url>
-          <line>224</line>
+          <line>225</line>
           <option name="timeStamp" value="245" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">

@@ -202,7 +202,7 @@ class supercell(object):
         r = []
         for x in self.atoms:
             name = x.getname(n)
-            pos = x.realpos.getDecartPos(self.cell.cell_cos)
+            pos = x.realpos #.getDecartPos(self.cell.cell_cos)
             if '.mol' in name:
                 t = molecules.molecules.get(name).printatomsNumeric(pos, index=x.index)
             else:
