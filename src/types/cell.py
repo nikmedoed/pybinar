@@ -99,10 +99,10 @@ class cell(object):
 
 #Todo номера при молекулах должны быть общими, а не начинаться заново
 
-    def printatomsNumeric(self, trans=None):
+    def printatomsNumeric(self, trans=None, index=None):
         self.atomTEMPcount = dict.fromkeys(self.elements, 0)
         r = ""
-        r += "\n".join(list(map(lambda x: numericListFromDic(self.atomTEMPcount, x.name) +
+        r += "\n".join(list(map(lambda x: numericListFromDic(self.atomTEMPcount, x.name, index=index) +
                                           (str(x + trans)if trans else str(x)), self.atoms)))
         return r
 

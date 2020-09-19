@@ -9,7 +9,7 @@ import random
 def randomColor():
     return (random.uniform(0, 1), random.uniform(0, 1), random.uniform(0, 1))
 
-def bulidXYZ (x, y, z, text=None, ax=None, color=None):
+def bulidXYZ (x, y, z, text="", ax=None, color=None):
     if not ax:
         fig = plt.figure()
         ax = fig.add_subplot(111, projection='3d')
@@ -42,3 +42,4 @@ if __name__ == "__main__":
         [0.0000, 0.0000, -0.3153, -0.6256, 0.9409, -1.0210, 0.3422, 0.6788],
         [0.0000, 0.0000, -0.9044, 0.7252, 0.1791, -0.1943, 0.9814, -0.7870]
     )
+    plt.show()

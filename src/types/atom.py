@@ -29,7 +29,7 @@ class atom(object):
         self.cell = cell
         self.neighbours = defaultdict(list)
         self.realpos = None
-        self.index = -1
+        self.index = None
         pass
         # self.x, self.y, self.z = list(map(float, [x, y, z]))
 
@@ -68,7 +68,7 @@ class atom(object):
         else:
             return self.initpow
 
-    def setIndex(self,i):
+    def setIndex(self, i):
         self.index = i
         return self
 

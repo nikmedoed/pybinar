@@ -197,16 +197,33 @@ class supercell(object):
         r += "\n".join(list(map(lambda x: numericListFromDic(self.atomTEMPcount, x.name) + str(x), self.atoms)))
         return r
 
-#todo выводить координаты с коррекцией т.е. как-то передавать в молекулу позицию
-
     def printatomsRulesNumeric(self, n=-1):
         self.atomTEMPcount = dict.fromkeys(self.cell.elements, 0)
-        r = ""
-        r += "\n".join(list(map(lambda x:
-                                (molecules.molecules.get(x.getname(n)).printatomsNumeric(x.pos) if '.mol' in x.getname(n)
-                                        else (numericListFromDic(self.atomTEMPcount, x.getname(n)) + str(x)))
-                                 , self.atoms)))
-        return r
+        r = []
+        for x in self.atoms:
+            name = x.getname(n)
+            pos = x.realpos.getDecartPos(self.cell.cell_cos)
+            if '.mol' in name:
+                t = molecules.molecules.get(name).printatomsNumeric(pos, index=x.index)
+            else:
+                t = numericListFromDic(self.atomTEMPcount, name, index=x.index) \
+                    + "  \x1b[33m%-3s\x1b[0m%s" % (name, pos)
+            r.append(t)
+        # r += "\n".join(list(map(lambda x:
+        #         (
+        #             molecules.molecules.get(x.getname(n)).printatomsNumeric(x.pos, index=x.index)
+        #             if '.mol' in x.getname(n)
+        #             else numericListFromDic(self.atomTEMPcount, x.getname(n), index=x.index) + str(x)
+        #         ), self.atoms)))
+
+        # import matplotlib.pyplot as plt
+        # from src.utils.graph2 import bulidXYZ
+        # names = list(map(lambda x: x.getname(n), self.atoms))
+        # atrans = list(zip(*list(map(lambda x: x.realpos.getDecartPos(self.cell.cell_cos), self.atoms))))
+        # bulidXYZ(*atrans, names)
+        # plt.show()
+
+        return "" + "\n".join(r)
     # todo вменяемый вывод без лишних символов, по порядку и все такое
 
     def __str__(self):

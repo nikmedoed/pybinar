@@ -70,6 +70,7 @@ class iterationResult(object):
                 pr("%s\n" % "\n".join(list(map(lambda x: "{:>3}  {:< 10.4}  {:< 10.4}  {:< 10.4}".format(x[0], x[1], x[2], x[1] - x[2]),
                                                zip(range(len(self.dist[i])), self.dist[i], data.theoreticalProbability[i])))))
                 pr("\n\n" + self.loc["SuperCell"] + "\n\n")
+                pr("% 5s % 6s %s %s\n" % ("id", "count", "name", "position"))
                 pr(deletecolors(data.supercell.printatomsRulesNumeric(i)))
 
 #todo supedcell печатать атомы с учетом правил и по порядку

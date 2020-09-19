@@ -43,9 +43,10 @@ class Profiler(object):
     def __exit__(self, type, value, traceback):
         print ("Elapsed time: {:.3f} sec".format(time() - self._startTime))
 
-def numericListFromDic(s, n, c = 31):
+def numericListFromDic(s, n, c = 31, index=-1):
     s[n] += 1
-    return "\x1b[%dm% 4s\x1b[%dm" % (c, s[n], 0)
+    index = "% 5s" % index if index >= 0 else ""
+    return index + "\x1b[%dm% 6s\x1b[%dm" % (c, s[n], 0)
 
 def deletecolors(s):
     s = re.sub("\x1b\[\d*m", "", s)

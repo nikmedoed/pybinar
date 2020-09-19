@@ -7,6 +7,7 @@ import math
 
 class position (object):
     def __init__(self, x, y = None, z = None):
+        self.dec = None
         if type(x) is list:
             self.x, self.y, self.z = list(map(float, x))
         elif type(x) is position:
@@ -93,8 +94,6 @@ class position (object):
             self.z *= other.z
         return self
 
-    # todo если потребуется, то сделать векторное произведение и скалярное, потмоу что просто домножение координа это такое себе
-
     def __truediv__(self, other):
         if type(other) is list:
             r = position(self.x / other[0], self.y / other[1], self.z / other[2])
@@ -148,6 +147,11 @@ class position (object):
             self.y %= other.y
             self.z %= other.z
         return self
+
+    def getDecartPos(self, ang):
+        if not self.dec:
+            self.dec = position(1, 1, 1)
+        return self.dec
 
     def dist(self, other, ang=None):
         # if type(other) is list:
